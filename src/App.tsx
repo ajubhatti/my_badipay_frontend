@@ -1,16 +1,18 @@
 import React from 'react';
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import TaskAddPage from './pages/TaskAddPage';
 import TaskEditPage from './pages/TaskEditPage';
+import Header from './component/Header';
 
 function App() {
   return (
     <div className="App">
+      <Header/>
       <BrowserRouter>
         <Switch>
           <Route exact path='/registers' component={ RegisterPage } />
