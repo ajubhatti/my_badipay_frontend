@@ -2,12 +2,12 @@ import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import DashboardPage from './pages/DashboardPage';
-import TaskAddPage from './pages/TaskAddPage';
-import TaskEditPage from './pages/TaskEditPage';
-import Header from './component/Header';
+import LoginPage from './Pages/LoginPage';
+import RegisterPage from './Pages/RegisterPage';
+import DashboardPage from './Pages/DashboardPage';
+import TaskAddPage from './Pages/TaskAddPage';
+import TaskEditPage from './Pages/TaskEditPage';
+import Header from './Component/Header';
 
 function App() {
   return (

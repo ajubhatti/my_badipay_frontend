@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { authenticationService } from "../services/authentication.service";
+import { authenticationService } from "../Services/authentication.service";
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");

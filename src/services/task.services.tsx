@@ -1,6 +1,5 @@
 import { apiUrl } from "./apiUrl";
 
-
 export const taskService = {
     create,
     update,

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { authenticationService } from "../services/authentication.service";
+import { authenticationService } from "../Services/authentication.service";
 
 const RegisterComponent = () => {
     const [firstName,setFirstName] = useState(null);
