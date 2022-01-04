@@ -12,10 +12,13 @@ code {
     monospace;
 }
 
-/* header css */
-.top-row{font-size: 14px;line-height: 30px;}
-.top-row ul li a{color: inherit;position: relative;padding: 0 8px;}
-.top-row ul > li:not(:last-child) a{border-right: 1px solid rgba(255, 255, 255, .5);}
-.top-row ul li a svg{width: 14px;}
-.top-row ul{margin-bottom: 0;}
-.top-row ul li{display: inline-block;}
+
+a, .btn-outline-primary{color: #144166;}
+.bg-primary, .btn-primary{
+  background-color: #144166 !important;
+}
+.btn-primary, .btn-outline-primary{
+  border-color: #144166 !important;
+}
+
+.text-secondary{color: #ef6521 !important;}

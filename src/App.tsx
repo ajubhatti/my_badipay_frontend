@@ -8,6 +8,7 @@ import DashboardPage from './Pages/DashboardPage';
 import TaskAddPage from './Pages/TaskAddPage';
 import TaskEditPage from './Pages/TaskEditPage';
 import Header from './Component/Header';
+import Footer from './Component/Footer';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           </Route> */}
         </Switch>
       </BrowserRouter>
+      <Footer/>
     </div>
   );
 }

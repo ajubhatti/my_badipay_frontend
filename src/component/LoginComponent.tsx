@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { authenticationService } from "../Services/authentication.service";
+import './LoginRegisterComponent.css';
+import { MDBRow, MDBCol, MDBInput, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");
@@ -22,29 +24,38 @@ const LoginComponent = () => {
 
     return (
         <div className="main-wrapper">
-            <div className="login-wrapper">                
-                <div className="field-wrapper">
+            <div className="login-wrapper">  
+                <MDBTypography variant='h4' align='center' colorText="secondary" className="mb-4">To Login into your Badipay Web account</MDBTypography>
+                <MDBInput className="mb-3" label='Enter Email' id='form1' type='text' {...email} onChange={(e :
+                            any)=>setEmail(e.target.value)} autoComplete="new-password" />
+                <MDBInput className="mb-3" label='Enter Password' id='form1' type='text' autoComplete="new-password" onChange={(e : any)=>setPassword(e.target.value)}/>
+                <div className="d-grid gap-2">
+                    <MDBTypography tag='small' align='right'><a href="" className="font-weight-bold">Forgot Password?</a></MDBTypography>
+                    <MDBBtn  onClick={handlelogin}>Login</MDBBtn>
+                    <Link className="d-block" to='/registers'><MDBBtn className="w-100" outline to='/registers'>Register</MDBBtn></Link>
+                </div>
+                {/* <div className="field-wrapper">
                     <label>Email</label>
                     <div>
                         <input type="text" {...email} placeholder="Enter Email" onChange={(e :
                             any)=>setEmail(e.target.value)}
                         autoComplete="new-password" />
                     </div>
-                </div>
-                <div className="field-wrapper">
+                </div> */}
+                {/* <div className="field-wrapper">
                     <label>Password</label>
                     <div className="pass-wrapper">
                         <input placeholder="Enter Password" // type="password" // {...password} type="password"
                             autoComplete="new-password" onChange={(e : any)=>setPassword(e.target.value)}
                         />
                     </div>
-                </div>
-                <div className="Button">
+                </div> */}
+                {/* <div className="Button">
                     <input type="button" value="Login" onClick={handlelogin} />
                 </div>
                 <div className="reset-Button">
                     <Link to='/registers'>Register</Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );
