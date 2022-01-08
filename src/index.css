@@ -12,13 +12,18 @@ code {
     monospace;
 }
 
-
-a, .btn-outline-primary{color: #144166;}
-.bg-primary, .btn-primary{
-  background-color: #144166 !important;
+:root {
+  --mdb-primary: #030139;
+  --mdb-secondary: #f26a19;
+  --mdb-primary-rgb: 3, 1, 57;
+  --mdb-secondary-rgb: 242, 106, 25;
 }
-.btn-primary, .btn-outline-primary{
-  border-color: #144166 !important;
-}
+a, .btn-outline-primary{color: var(--mdb-primary-rgb);}
+.btn-outline-primary{border-color: var(--mdb-primary-rgb);}
 
-.text-secondary{color: #ef6521 !important;}
+.btn-primary:hover{background-color: rgba(var(--mdb-secondary-rgb), var(--mdb-bg-opacity)) !important;}
+.btn-outline-primary:hover{border-color: var(--mdb-secondary);color: var(--mdb-secondary);}
+.bg-primary, .btn-primary {
+  --mdb-bg-opacity: 1;
+  background-color: rgba(var(--mdb-primary-rgb), var(--mdb-bg-opacity)) !important;
+}

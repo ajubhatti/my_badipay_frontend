@@ -152,3 +152,49 @@
   .action-button button {
     width: 50%;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* my css */
+  ul.feature-list{padding: 0 50px;}
+  ul.feature-list li{margin: 10px 0;cursor: pointer;display: flex;align-items: center;}
+  ul.feature-list li > span{
+    background-color: var(--mdb-primary);
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  ul.feature-list li > span img{
+    filter: invert(1);
+  }
+  ul.feature-list li p{display: inline-block;margin-bottom: 0;padding: 7px;position: relative;z-index: 9;}
+  ul.feature-list li p::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    transition: all .3s;
+    background-color: #fff;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%);
+  }
+  ul.feature-list li:hover p::after{width: 100%;}
+  ul.feature-list.text-right li{flex-direction: row-reverse;}
+  ul.feature-list.text-right li p::after{border-radius: 10px 0px 0px 10px;}

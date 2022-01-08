@@ -5,33 +5,95 @@ import { taskService } from '../Services/task.services';
 import "./DashBoard.css";
 
 const DashBoard = () => {
-    const [taskList, setTaskList] : any = useState([]);
+    // const [taskList, setTaskList] : any = useState([]);
 
-    const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
-    useEffect(() => {
-        getListOfUsers();
-    }, []);
+    // const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+    // useEffect(() => {
+    //     getListOfUsers();
+    // }, []);
 
-    const getListOfUsers = () => {
-        taskService.getByUserId(currentUserSubject.value._id).then(res=>{
-            console.log("lst --",res)
-            setTaskList(res)
-        })
-    }
+    // const getListOfUsers = () => {
+    //     taskService.getByUserId(currentUserSubject.value._id).then(res=>{
+    //         console.log("lst --",res)
+    //         setTaskList(res)
+    //     })
+    // }
 
-    const deleteTask = (id : any) => {
+    // const deleteTask = (id : any) => {
         
        
-        taskService.deleteTask(id).then(res=>{
-            var lst : any = taskList.filter((x : any) => x._id !== id);
-            console.log("delete task ---",lst)
-            setTaskList(lst);
-        });
-    }
+    //     taskService.deleteTask(id).then(res=>{
+    //         var lst : any = taskList.filter((x : any) => x._id !== id);
+    //         console.log("delete task ---",lst)
+    //         setTaskList(lst);
+    //     });
+    // }
 
     return (
         <div>
-            <h1>To Do List</h1>
+            <div className='bg-light'>
+                <div className='container-xl'>
+                    <div className='row py-5'>
+                        <div className='col-md-6 border-right text-right'>
+                            <ul className='list-unstyled feature-list text-right'>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className='col-md-6'>
+                            <ul className='list-unstyled feature-list'>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                                <li>
+                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <h1>To Do List</h1>
             <Link 
                 to={`/task/add`} 
                 className="btn btn-sm btn-success mb-2">Add Task
@@ -75,7 +137,7 @@ const DashBoard = () => {
                         </tr>
                     }
                 </tbody>
-            </table>
+            </table> */}
         </div>
     );
 }
