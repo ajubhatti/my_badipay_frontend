@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useHistory,useLocation,useParams } from "react-router-dom";
-import { taskService } from "../Services/task.services";
+import { taskService } from "../services/task.services";
 import { BehaviorSubject } from 'rxjs';
 
 const TaskAddPage = () => {
@@ -9,7 +9,7 @@ const TaskAddPage = () => {
     const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
 
     const handleSubmit = () => {
-        const data : any ={
+        const data ={
             "userId" : currentUserSubject.value._id,
             "description" :description
         }
@@ -27,7 +27,7 @@ const TaskAddPage = () => {
             <div className="form-row">                
                 <div className="form-group col-5">
                     <label>Description</label>
-                    <input name="firstName" type="text" onChange={(e : any)=>setDecription(e?.target?.value)}/>
+                    <input name="firstName" type="text" onChange={(e)=>setDecription(e?.target?.value)}/>
                 </div>
             </div>
             

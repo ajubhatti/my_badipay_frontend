@@ -44,7 +44,7 @@ const Header = () => {
             <MDBContainer>
                 <div className='logo'>
                     <MDBNavbarBrand href='#'>                    
-                        <img src='./assets/images/logo.png' className='img-fluid' />
+                        <img src='./assets/images/logo.jpg' className='img-fluid' />
                     </MDBNavbarBrand>
                 </div>
                 <MDBNavbarToggler

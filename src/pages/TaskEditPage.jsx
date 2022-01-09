@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useHistory,useLocation,useParams } from "react-router-dom";
-import { taskService } from "../Services/task.services";
+import { taskService } from "../services/task.services";
 
 const TaskEditPage = () => {
     const location = useLocation();
@@ -9,7 +9,7 @@ const TaskEditPage = () => {
 
     const [description,setDecription] = useState(null);
 
-    const [task,setTask] : any = useState({})
+    const [task,setTask] = useState({})
     let taskId = location.pathname.split('/')[3];
 
     useEffect(()=>{
@@ -25,7 +25,7 @@ const TaskEditPage = () => {
     }
 
     const handleSubmit = () => {
-        const data : any = {
+        const data = {
             description : description            
         }
         taskService.update(task._id,data).then(res=>{
@@ -40,7 +40,7 @@ const TaskEditPage = () => {
                     <input name="firstName" 
                         defaultValue = {task.description || ""} 
                         type="text" 
-                        onChange={(e : any)=>setDecription(e?.target?.value)}
+                        onChange={(e)=>setDecription(e?.target?.value)}
                     />
                 </div>
             </div>
