@@ -9,7 +9,7 @@ export const taskService = {
     getByUserId,
 };
 
-function getByUserId(userId : any) {
+function getByUserId(userId) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -23,7 +23,7 @@ function getByUserId(userId : any) {
         });
 }
 
-function getById(id : any) {
+function getById(id) {
     const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
@@ -36,7 +36,7 @@ function getById(id : any) {
         });
 }
 
-function create(params : any) {
+function create(params) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -50,7 +50,7 @@ function create(params : any) {
         });
 }
 
-function update(id:any,params : any) {
+function update(id,params) {
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -64,7 +64,7 @@ function update(id:any,params : any) {
         });
 }
 
-function deleteTask(params : any) {
+function deleteTask(params) {
     const requestOptions = {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
