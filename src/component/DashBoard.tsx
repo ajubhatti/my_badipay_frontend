@@ -31,62 +31,55 @@ const DashBoard = () => {
 
     return (
         <div>
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-12 p-0'>
+                    <h3 className='text-center py-5 mb-0 w-75 mx-auto'>Recharge &amp; pay bills, book flights &amp; movie tickets, open a savings account, invest in stocks &amp; mutual funds, and do a lot more.</h3>
+                        <img src='./assets/images/10107.jpg' className='img-fluid' />
+                    </div>
+                </div>
+            </div>
+
             <div className='bg-light'>
                 <div className='container-xl'>
                     <div className='row py-5'>
-                        <div className='col-md-6 border-right text-right'>
+                        <div className='col-md-6 text-right'>
                             <ul className='list-unstyled feature-list text-right'>
                                 <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
+                                    <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
                                     <p>Recharge Prepaid Mobile</p>
                                 </li>
                                 <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
+                                    <span><img src='./assets/images/home.png' className='img-fluid' /></span>
+                                    <p>Pay rent payment</p>
                                 </li>
                                 <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
+                                    <span><img src='./assets/images/idea.png' className='img-fluid' /></span>
+                                    <p>pay electricity bill</p>
                                 </li>
                                 <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
+                                    <span><img src='./assets/images/satellite.png' className='img-fluid' /></span>
+                                    <p>Recharge DTH connection</p>
                                 </li>
                             </ul>
                         </div>
                         <div className='col-md-6'>
                             <ul className='list-unstyled feature-list'>
                                 <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
+                                    <span><img src='./assets/images/gas-cylinder.png' className='img-fluid' /></span>
+                                    <p>book gas cylinder</p>
                                 </li>
                                 <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
+                                    <span><img src='./assets/images/credit-cards.png' className='img-fluid' /></span>
+                                    <p>pay credit card bill</p>
                                 </li>
                                 <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
+                                    <span><img src='./assets/images/flight.png' className='img-fluid' /></span>
+                                    <p>book flight tickets</p>
                                 </li>
                                 <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/clock.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
+                                    <span><img src='./assets/images/investing.png' className='img-fluid' /></span>
+                                    <p>invest in stock</p>
                                 </li>
                             </ul>
                         </div>

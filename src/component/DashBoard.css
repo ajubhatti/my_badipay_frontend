@@ -180,7 +180,7 @@
   ul.feature-list li > span img{
     filter: invert(1);
   }
-  ul.feature-list li p{display: inline-block;margin-bottom: 0;padding: 7px;position: relative;z-index: 9;}
+  ul.feature-list li p{display: inline-block;margin-bottom: 0;padding: 7px;position: relative;z-index: 9;text-transform: capitalize; transition: all.3s;}
   ul.feature-list li p::after{
     content: '';
     position: absolute;
@@ -190,11 +190,12 @@
     top: 0;
     bottom: 0;
     width: 0;
-    transition: all .3s;
-    background-color: #fff;
+    transition: all .5s;
+    background-color: var(--mdb-primary);
     border-radius: 0px 10px 10px 0px;
     box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%);
   }
   ul.feature-list li:hover p::after{width: 100%;}
+  ul.feature-list li:hover p{color: #fff;}
   ul.feature-list.text-right li{flex-direction: row-reverse;}
-  ul.feature-list.text-right li p::after{border-radius: 10px 0px 0px 10px;}
+  ul.feature-list.text-right li p::after{border-radius: 10px 0px 0px 10px;left: auto;}

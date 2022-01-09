@@ -31,7 +31,7 @@ const LoginComponent = () => {
                 <MDBInput className="mb-3" label='Enter Password' id='form1' type='text' autoComplete="new-password" onChange={(e : any)=>setPassword(e.target.value)}/>
                 <div className="d-grid gap-2">
                     <MDBTypography tag='small' align='right'><a href="" className="font-weight-bold">Forgot Password?</a></MDBTypography>
-                    <Link className="d-block" to='/task'><MDBBtn  onClick={handlelogin}>Login</MDBBtn></Link>
+                    <Link className="d-block" to='/task'><MDBBtn className="w-100" onClick={handlelogin}>Login</MDBBtn></Link>
                     <Link className="d-block" to='/registers'><MDBBtn className="w-100" outline to='/registers'>Register</MDBBtn></Link>
                 </div>
                 {/* <div className="field-wrapper">
