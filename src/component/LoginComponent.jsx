@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { authenticationService } from "../services/authentication.service";
 import './LoginRegisterComponent.css';
 import { MDBRow, MDBCol, MDBInput, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
+import { accountService } from "../services/account.service";
+import { alertService } from "../services";
+import { authenticationService } from "../services/authentication.service";
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");
@@ -12,8 +14,10 @@ const LoginComponent = () => {
 
     const handlelogin = () => {
         setLoading(true);
+        // onSubmit(email,password);
         authenticationService.login(email, password).then(user => {
-            if(user && user._id){
+            console.log("usr data ---",user)
+            if(user && user.id){
                 setLoading(false);
                 if(user){
                   history.push('/task');
@@ -21,6 +25,19 @@ const LoginComponent = () => {
             }     
         })
     };
+
+    const onSubmit = ({ email, password }) => {
+        alertService.clear();
+        accountService.login(email, password)
+            .then(() => {
+                // const { from } = location.state || { from: { pathname: "/" } };
+                history.push('/');
+            })
+            .catch(error => {
+                // setSubmitting(false);
+                alertService.error(error);
+            });
+    }
 
     return (
         <div className="main-wrapper">
@@ -30,7 +47,7 @@ const LoginComponent = () => {
                 <MDBInput className="mb-3" label='Enter Password' id='form1' type='text' autoComplete="new-password" onChange={(e)=>setPassword(e.target.value)}/>
                 <div className="d-grid gap-2">
                     <MDBTypography tag='small' align='right'><a href="" className="font-weight-bold">Forgot Password?</a></MDBTypography>
-                    <Link className="d-block" to='/task'><MDBBtn  onClick={handlelogin}>Login</MDBBtn></Link>
+                    <Link className="d-block"><MDBBtn  onClick={handlelogin}>Login</MDBBtn></Link>
                     <Link className="d-block" to='/registers'><MDBBtn className="w-100" outline to='/registers'>Register</MDBBtn></Link>
                 </div>
                 {/* <div className="field-wrapper">

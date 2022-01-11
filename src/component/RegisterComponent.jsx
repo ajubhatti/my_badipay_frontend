@@ -39,9 +39,9 @@ const RegisterComponent = () => {
         console.log("initial value ---",initialValues)
         authenticationService.register(initialValues).then(user => {
             console.log("user ---",user)
-          setLoading(false);
-          alertService.success('Registration successful, please check your email for verification instructions', { keepAfterRouteChange: true });
-          history.push('login');
+            setLoading(false);
+            alertService.success('Registration successful, please check your email for verification instructions', { keepAfterRouteChange: true });
+            history.push('/login');
         //   if(user){
         //     history.push('/');
         //   }          
