@@ -11,7 +11,8 @@ import {
   MDBNavbarItem,
   MDBNavbarLink,
   MDBBtn,
-  MDBCollapse
+  MDBCollapse,
+  MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem, MDBDropdownLink
 } from 'mdb-react-ui-kit';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -77,6 +78,22 @@ const Header = () => {
                     </MDBNavbarItem>
                     <MDBNavbarItem className='user_block'>
                     <MDBBtn className='font-weight-bold' rounded>Button</MDBBtn>
+                    </MDBNavbarItem>
+                    <MDBNavbarItem>
+                    <MDBDropdown>
+                        <MDBDropdownToggle rounded>Dropdown button</MDBDropdownToggle>
+                        <MDBDropdownMenu>
+                            <MDBDropdownItem>
+                            <MDBDropdownLink href="#">Action</MDBDropdownLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem>
+                            <MDBDropdownLink href="#">Another action</MDBDropdownLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem>
+                            <MDBDropdownLink href="#">Something else here</MDBDropdownLink>
+                            </MDBDropdownItem>
+                        </MDBDropdownMenu>
+                        </MDBDropdown>
                     </MDBNavbarItem>
                 </MDBNavbarNav>
                 </MDBCollapse>
