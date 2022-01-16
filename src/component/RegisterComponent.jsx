@@ -7,31 +7,34 @@ import { accountService } from '../services/account.service';
 import { alertService } from "../services";
 
 const RegisterComponent = () => {
-    const [firstName,setFirstName] = useState(null);
     const [lastName,setLastName] = useState(null);
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [email, setEmail] = useState("report.bt@mailinator.com");
     const [password, setPassword] = useState("12345678");
+    const [confirmPassword,setConfirmPassword] = useState(null);
+    const [referrelLink,setReferrelLink] = useState(null);
     const [loading, setLoading] = useState(false);
+
     let history = useHistory();
 
     const handlelogin = () => {
         var userData = {
-            "firstname" : firstName,
             "lastname" : lastName,
             "email" : email,
             "phoneNumber" : phoneNumber,
-            "password" :password
+            "referrelLink":referrelLink,
+            "password" :password,
+            "confirmPassword" : confirmPassword
         }
         setLoading(true);
 
         const initialValues = {
             title: 'Mr',
-            firstName: firstName,
             lastName: lastName,
             email: email,
             password: password,
-            confirmPassword: password,
+            referrelLink:referrelLink,
+            confirmPassword: confirmPassword,
             acceptTerms: true
         };
 
@@ -58,13 +61,13 @@ const RegisterComponent = () => {
                     <MDBCol></MDBCol>
                     <MDBCol>
                         <div className="login-wrapper">
-                            <MDBTypography variant='h4'  colorText="secondary" align='center' className="mb-4">Welcome into Badipay.in</MDBTypography>        
-                            <MDBInput className="mb-3" label='Enter First Name' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setFirstName(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Last Name' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setLastName(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Email' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setEmail(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Phone Number' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setPhoneNumber(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Password' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setPassword(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Confirm Password' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setPassword(e.target.value)}/>
+                            <MDBTypography variant='h4' colorText="secondary" align='center' className="mb-4">Welcome into Badipay.in</MDBTypography>
+                            <MDBInput className="mb-3" label='Name' id='form1' type='text' autoComplete="name" onChange={(e)=>setLastName(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Email' id='form1' type='text' autoComplete="email" onChange={(e)=>setEmail(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Phone Number' id='form1' type='text' autoComplete="phone" onChange={(e)=>setPhoneNumber(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Referel Link' id='form1' type='text' autoComplete="referelLink" onChange={(e)=>setReferrelLink(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Password' id='form1' type='password' autoComplete="password" onChange={(e)=>setPassword(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Confirm Password' id='form1' type='password' autoComplete="confirmPassword" onChange={(e)=>setConfirmPassword(e.target.value)}/>
                             <div className="d-grid gap-2">
                                 <MDBBtn onClick={handlelogin}>Register</MDBBtn>
                                 <MDBTypography tag='small' align='right'><Link to="/" className="font-weight-bold">Already have an Account?</Link></MDBTypography>
