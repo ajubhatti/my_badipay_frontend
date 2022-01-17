@@ -1,71 +1,127 @@
 @media only screen and (max-width: 800px) {
 
-    .avatar-size {
-      height: 62px !important;
-      width: 62px !important;
-    }
-  
-    .m-body-text {
-      font-size: 13px;
-      font-weight: 400;
-      text-align: center;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  
-    .m-prompt-text {
-      font-size: 13px;
-      text-align: center;
-    }
-  
-    .m-progressbar {
-      margin-top: 0;
-      margin-bottom: 4px;
-    }
-  
-    .progress {
-      background-color: #aaa;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      height: 4px;
-      width: 100%;
-    }
-  
-    .m-card {
-      margin: 10px 10px 10px 10px;
-      width: 142px;
-      min-width: 142px;
-      max-width: 142px;
-      min-height: 129px;
-      max-height: 129px;
-      height: 129px;
-    }
-  
-    .m-card-image {
-      width: 140px;
-    }
-  
-    .m-card-selected > .m-card-image {
-      width: 138px;
-    }
-  
-    .m-card-title {
-      font-size: 14px;
-      font-weight: 400;
-    }
-  
-    .card-body {
-      padding: 10px 10px 10px 10px;
-    }
-  
-    .m-red-button {
-      width: 50% !important;
-      float: none !important;
-    }
+  .avatar-size {
+    height: 62px !important;
+    width: 62px !important;
   }
-  
-  .progress-bar.bg-warning {
+
+  .m-body-text {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .m-prompt-text {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .m-progressbar {
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  .progress {
+    background-color: #aaa;
+    -webkit-box-shadow: none;
+    box-shadow: none;
     height: 4px;
+    width: 100%;
+  }
+
+  .m-card {
+    margin: 10px 10px 10px 10px;
+    width: 142px;
+    min-width: 142px;
+    max-width: 142px;
+    min-height: 129px;
+    max-height: 129px;
+    height: 129px;
+  }
+
+  .m-card-image {
+    width: 140px;
+  }
+
+  .m-card-selected > .m-card-image {
+    width: 138px;
+  }
+
+  .m-card-title {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .card-body {
+    padding: 10px 10px 10px 10px;
+  }
+
+  .m-red-button {
+    width: 50% !important;
+    float: none !important;
+  }
+}
+
+.progress-bar.bg-warning {
+  height: 4px;
+}
+
+.text-red {
+  color: #FF3521;
+}
+
+.m-card-selected {
+  color: #23A0C1;
+  border-color: #23A0C1;
+  border-width: 2px;
+}
+
+.selected-tag.bg-pale-blue.color-light-blue {
+  background-color: #23A0C1 !important;
+  color: #FFFFFF !important;
+}
+
+.tag-text {
+  font-size: 11px !important;
+}
+.card-body{
+  background-color: #2D2F34;
+}
+
+@media only screen and (min-width: 801px) {
+  .avatar-size {
+    height: 5rem !important;
+    width: 5rem !important;
+  }
+
+  .m-body-text {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  .m-prompt-text {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .m-progressbar {
+    margin-bottom: 4px;
+    margin-top: 20px;
+  }
+
+  .progress {
+    background-color: #aaa;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    height: 8px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
   
   .text-red {

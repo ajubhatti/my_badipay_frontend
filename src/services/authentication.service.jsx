@@ -12,13 +12,14 @@ export const authenticationService = {
     get currentUserValue () { return currentUserSubject.value }
 };
 
-function login(email : any, password : any) {
+function login(email, password) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
     };
-    const loginUri = apiUrl.auth.login;
+    // const loginUri = apiUrl.auth.login;
+    const loginUri = apiUrl.account.authenticate;
     return fetch(loginUri, requestOptions)
         .then(res=>res.json())
         .then(user => {
@@ -28,13 +29,14 @@ function login(email : any, password : any) {
         });
 }
 
-function register(params : any) {
+function register(params) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params)
     };
-    const loginUri = apiUrl.auth.register;
+    // const loginUri = apiUrl.auth.register;
+    const loginUri = apiUrl.account.register;
     return fetch(loginUri, requestOptions)
         .then(res=>res.json())
         .then(user => {
@@ -49,7 +51,7 @@ function logout() {
     currentUserSubject.next(null);
 }
 
-function updateUser(data : any) {
+function updateUser(data) {
     try{
         const  requestOptions = {
             method : 'GET',
