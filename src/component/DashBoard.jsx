@@ -38,7 +38,12 @@ const DashBoard = () => {
                     </div>
                 </div>
             </div>
-
+            <div className='container'>
+                <marquee width="100%" direction="right">
+                This is a sample scrolling text that has scrolls texts to right.
+                <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
+                </marquee>
+            </div>            
             <div className='bg-light'>
                 <div className='container-xl'>
                     <div className='row py-5'>
