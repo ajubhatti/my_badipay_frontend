@@ -6,6 +6,7 @@ import {
 } from 'mdb-react-ui-kit';
 
 const Footer = () => {
+    console.log("footer")
     return (
     <MDBFooter backgroundColor='dark' className='footer bg-dark'>
         <MDBContainer className='py-5'>
