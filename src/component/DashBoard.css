@@ -124,6 +124,25 @@
     width: 100%;
   }
   
+  .progress-bar.bg-warning {
+    height: 8px;
+  }
+
+  .m-card {
+    margin: 20px 20px 20px 20px;
+    width: 284px;
+    min-width: 284px;
+    max-width: 284px;
+    min-height: 260px;
+    max-height: 260px;
+    height: 260px;
+  }
+
+  .m-red-button {
+    width: 100% !important;
+    float: right;
+  }
+  
   .text-red {
     color: #FF3521;
   }
@@ -145,69 +164,16 @@
   .card-body{
     background-color: #2D2F34;
   }
-  
-  @media only screen and (min-width: 801px) {
-    .avatar-size {
-      height: 5rem !important;
-      width: 5rem !important;
-    }
-  
-    .m-body-text {
-      font-size: 13px;
-      font-weight: 400;
-      text-align: left;
-      padding-left: 0;
-      padding-right: 20px;
-    }
-  
-    .m-prompt-text {
-      font-size: 13px;
-      text-align: center;
-    }
-  
-    .m-progressbar {
-      margin-bottom: 4px;
-      margin-top: 20px;
-    }
-  
-    .progress {
-      background-color: #aaa;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      height: 8px;
-      margin-left: 0;
-      margin-right: 0;
-      width: 100%;
-    }
-  
-    .progress-bar.bg-warning {
-      height: 8px;
-    }
-  
-    .m-card {
-      margin: 20px 20px 20px 20px;
-      width: 284px;
-      min-width: 284px;
-      max-width: 284px;
-      min-height: 260px;
-      max-height: 260px;
-      height: 260px;
-    }
-  
-    .m-red-button {
-      width: 100% !important;
-      float: right;
-    }
-  }
-  
-  .action-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .action-button button {
-    width: 50%;
-  }
+}
+
+.action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.action-button button {
+  width: 50%;
+}
 
 
 
