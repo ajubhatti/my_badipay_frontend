@@ -53,7 +53,7 @@ function ResetPassword({ history ,location}) {
             accountService.resetPassword({ token, password, confirmPassword })
                 .then(() => {
                     alertService.success('Password reset successful, you can now login', { keepAfterRouteChange: true });
-                    history.push('login');
+                    history.push('/login');
                 })
                 .catch(error => {
                     setSubmitting(false);

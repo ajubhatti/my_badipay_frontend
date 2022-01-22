@@ -7,7 +7,7 @@ import { accountService } from '../services/account.service';
 import { alertService } from "../services";
 import { async } from "rxjs";
 
-const RegisterComponent = () => {
+const serviceRegisterComponent = () => {
     const [userName,setUserName] = useState(null);
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [email, setEmail] = useState("report.bt@mailinator.com");
@@ -77,4 +77,4 @@ const RegisterComponent = () => {
     );
 }
 
-export default RegisterComponent;
+export default serviceRegisterComponent;

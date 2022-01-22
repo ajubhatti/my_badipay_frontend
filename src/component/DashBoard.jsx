@@ -3,20 +3,22 @@ import { Link } from 'react-router-dom';
 import { BehaviorSubject } from 'rxjs';
 import "./DashBoard.css";
 
+import { servicesService } from "../services/service.service";
+
 const DashBoard = () => {
-    // const [taskList, setTaskList] : any = useState([]);
+    const [servicesList, setServicesList] = useState([]);
 
     // const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
-    // useEffect(() => {
-    //     getListOfUsers();
-    // }, []);
+    useEffect(() => {
+        getListOfServices();
+    }, []);
 
-    // const getListOfUsers = () => {
-    //     taskService.getByUserId(currentUserSubject.value._id).then(res=>{
-    //         console.log("lst --",res)
-    //         setTaskList(res)
-    //     })
-    // }
+    const getListOfServices = () => {
+        servicesService.getAll().then(res=>{
+            console.log("lst --",res)
+            setServicesList(res)
+        })
+    }
 
     // const deleteTask = (id : any) => {
         
@@ -47,13 +49,20 @@ const DashBoard = () => {
             <div className='bg-light'>
                 <div className='container-xl'>
                     <div className='row py-5'>
-                        <div className='col-md-6 text-right'>
+                        <div className='col-md-12 text-right'>
                             <ul className='list-unstyled feature-list text-right'>
-                                <li>
-                                    <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
-                                </li>
-                                <li>
+                                { 
+                                    servicesList.map((service) => { 
+                                        return (
+                                            <li>
+                                                <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
+                                                <p>{ service.serviceName}</p>
+                                            </li>
+                                        )
+                                    })
+                                }
+                                
+                                {/* <li>
                                     <span><img src='./assets/images/home.png' className='img-fluid' /></span>
                                     <p>Pay rent payment</p>
                                 </li>
@@ -64,10 +73,10 @@ const DashBoard = () => {
                                 <li>
                                     <span><img src='./assets/images/satellite.png' className='img-fluid' /></span>
                                     <p>Recharge DTH connection</p>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
-                        <div className='col-md-6'>
+                        {/* <div className='col-md-6'>
                             <ul className='list-unstyled feature-list'>
                                 <li>
                                     <span><img src='./assets/images/gas-cylinder.png' className='img-fluid' /></span>
@@ -86,7 +95,7 @@ const DashBoard = () => {
                                     <p>invest in stock</p>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
