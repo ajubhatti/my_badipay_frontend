@@ -28,7 +28,14 @@ const LoginComponent = () => {
 
     const onSubmit = ({ email, password }) => {
         alertService.clear();
-        accountService.login(email, password)
+        if (!email) { 
+
+        }
+        if (!password) { 
+
+        }
+        if (email && password) { 
+            accountService.login(email, password)
             .then(() => {
                 // const { from } = location.state || { from: { pathname: "/" } };
                 history.push('/');
@@ -37,6 +44,8 @@ const LoginComponent = () => {
                 // setSubmitting(false);
                 alertService.error(error);
             });
+        }
+        
     }
 
     return (
