@@ -41,7 +41,7 @@ function ForgotPassword() {
                                     {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                     Submit
                                 </button>
-                                <Link to="login" className="btn btn-link">Cancel</Link>
+                                <Link to="/login" className="btn btn-link">Cancel</Link>
                             </div>
                         </div>
                     </div>

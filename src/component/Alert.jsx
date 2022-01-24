@@ -15,26 +15,26 @@ const defaultProps = {
     fade: true
 };
 
-const Alert = ({ id, fade } : any) => {
+const Alert = ({ id, fade }) => {
     const [alerts, setAlerts] = useState([]);
 
     useEffect(() => {
         // subscribe to new alert notifications
         const subscription = alertService.onAlert(id)
-            .subscribe((alert : any) => {
+            .subscribe((alert) => {
                 // clear alerts when an empty alert is received
                 if (!alert.message) {
                     setAlerts(alerts => {
                         // filter out alerts without 'keepAfterRouteChange' flag
-                        const filteredAlerts = alerts.filter((x : any) => x.keepAfterRouteChange);
+                        const filteredAlerts = alerts.filter((x) => x.keepAfterRouteChange);
 
                         // remove 'keepAfterRouteChange' flag on the rest
-                        filteredAlerts.forEach((x : any) => delete x.keepAfterRouteChange);
+                        filteredAlerts.forEach((x) => delete x.keepAfterRouteChange);
                         return filteredAlerts;
                     });
                 } else {
                     // add alert to array
-                    setAlerts((alerts) : any => ([...alerts, alert]));
+                    setAlerts((alerts) => ([...alerts, alert]));
 
                     // auto close alert if required
                     if (alert.autoClose) {
@@ -44,7 +44,7 @@ const Alert = ({ id, fade } : any) => {
             });
 
         // clear alerts on location change
-        const historyUnlisten = history.listen(({ pathname } : any) => {
+        const historyUnlisten = history.listen(({ pathname }) => {
             // don't clear if pathname has trailing slash because this will be auto redirected again
             if (pathname.endsWith('/')) return;
 
@@ -59,11 +59,11 @@ const Alert = ({ id, fade } : any) => {
         };
     }, []);
 
-    const removeAlert = (alert : any) => {
+    const removeAlert = (alert) => {
         if (fade) {
             // fade out alert
             const alertWithFade = { ...alert, fade: true };
-            setAlerts((alerts : any) => alerts.map((x:any) => x === alert ? alertWithFade : x));
+            setAlerts((alerts) => alerts.map((x) => x === alert ? alertWithFade : x));
 
             // remove alert after faded out
             setTimeout(() => {
@@ -75,7 +75,7 @@ const Alert = ({ id, fade } : any) => {
         }
     }
 
-    const cssClasses = (alert : any) => {
+    const cssClasses = (alert) => {
         if (!alert) return;
 
         const classes = ['alert', 'alert-dismissable'];
@@ -101,7 +101,7 @@ const Alert = ({ id, fade } : any) => {
     return (
         <div className="container">
             <div className="m-3">
-                {alerts.map((alert : any, index) =>
+                {alerts.map((alert, index) =>
                     <div key={index} className={cssClasses(alert)}>
                         <a className="close" onClick={() => removeAlert(alert)}>&times;</a>
                         <span dangerouslySetInnerHTML={{__html: alert.message}}></span>

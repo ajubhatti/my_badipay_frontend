@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { accountService } from './services/account.service';
+
+// attempt silent token refresh before startup
+accountService.refreshToken().finally();
 
 ReactDOM.render(
   <React.StrictMode>
