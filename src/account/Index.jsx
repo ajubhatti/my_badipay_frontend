@@ -1,15 +1,21 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { accountService } from '../services/account.service';
 
-import { accountService } from '@/_services';
 
-import { Login } from './Login';
-import { Register } from './Register';
-import { VerifyEmail } from './VerifyEmail';
-import { ForgotPassword } from './ForgotPasswordPage';
+import { ForgotPassword } from './ForgotPassword';
+import Login from './Login';
+import Register from './Register';
 import { ResetPassword } from './ResetPassword';
+import { VerifyEmail } from './VerifyEmail';
 
-function Page({ history, match }) {
+// import { Login } from './Login';
+// import { Register } from './Register';
+// import { VerifyEmail } from './VerifyEmail';
+// import { ForgotPassword } from './ForgotPassword';
+// import { ResetPassword } from './ResetPassword';
+
+function Account({ history, match }) {
     const { path } = match;
 
     useEffect(() => {
@@ -38,4 +44,4 @@ function Page({ history, match }) {
     );
 }
 
-export { Page };
+export { Account };

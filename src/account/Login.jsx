@@ -22,8 +22,8 @@ const Login = ({ history, location }) => {
         alertService.clear();
         accountService.login(email, password)
             .then(() => {
-                const { from } = location.state || { from: { pathname: "/" } };
-                history.push(from);
+                const { from } = location.state || { from: { pathname: "/task" } };
+                history.push('/task');
             })
             .catch(error => {
                 setSubmitting(false);

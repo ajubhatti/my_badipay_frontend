@@ -16,6 +16,10 @@ import { accountService } from './services/account.service';
 import { Role } from './helpers/role';
 import Login from './account/Login';
 import Register from './account/Register';
+import { VerifyEmail } from './account/VerifyEmail';
+import { ForgotPassword } from './account/ForgotPassword';
+import { ResetPassword } from './account/ResetPassword';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 
 function App() {
   // const { pathname } = useLocation();
@@ -39,7 +43,18 @@ function App() {
               
           {/* <Route exact path="/account/login" component={Account} /> */}
           <Route path="/account/login" component={Login} />
+
           <Route exact path="/account/register" component={Register} />
+
+          <Route path={`/account/verify-email`} component={VerifyEmail} />
+          <Route path={`/account/forgot-password`} component={ForgotPassword} />
+          <Route path={`/account/reset-password`} component={ResetPassword} />
+
+
+          <Route path={`/forgot-password`} component={ForgotPasswordPage} />
+          <Route path={`/reset-password`} component={ResetPassword} />
+
+
           <Route path='/login' >
             <LoginPage />
           </Route>
