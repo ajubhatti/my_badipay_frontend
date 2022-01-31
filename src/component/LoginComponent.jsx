@@ -27,6 +27,7 @@ const LoginComponent = () => {
     };
 
     const onSubmit = ({ email, password }) => {
+        
         alertService.clear();
         if (!email) { 
 
