@@ -1,6 +1,6 @@
 /* header css */
 .header .logo img{max-width: 150px;}
-.header .nav-item .nav-link{transition: all .3s; padding: 5px 15px;font-weight: bold;color: #555;text-transform: capitalize;}
+.header .nav-item .nav-link{transition: all .3s; padding: 5px 15px;font-weight: bold;color: #555;text-transform: capitalize;font-size: var(--mdb-body-font-size);}
 .header .nav-item .nav-link:hover{color: #ef6521;}
 .header .nav-item.user_block{margin: 0 15px;}
 .top-row{font-size: 14px;line-height: 30px;}
@@ -9,3 +9,4 @@
 .top-row ul li a svg{width: 14px;}
 .top-row ul{margin-bottom: 0;}
 .top-row ul li{display: inline-block;}
+.header .nav-item .nav-link .wallet{max-width: 30px;}

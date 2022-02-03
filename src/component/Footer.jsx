@@ -13,11 +13,11 @@ const Footer = () => {
         <MDBContainer className='py-5'>
             <MDBRow>
                 <MDBCol lg='3' md='6'>
-                    <img src='./assets/images/logo.jpg' className='img-fluid' />
+                    <img src='./assets/images/footer_logo.png' className='img-fluid footer-logo' />
                     <MDBTypography variant='p' colorText='white'>Wanted distributors and retailers all over india. Hi speed recharge system with high margin, please contact us to start this business</MDBTypography>
                 </MDBCol>                
                 <MDBCol lg='3' md='6'>
-                    <MDBTypography variant='h5' className='mb-4 text-muted'>Features</MDBTypography>
+                    <MDBTypography variant='h5' className='mb-4 text-white'>Features</MDBTypography>
                     <ul className='text-white px-3 mb-0'>
                         <li>All Mobile/DTH Operators available</li>
                         <li>Instant recharge</li>
@@ -27,7 +27,7 @@ const Footer = () => {
                     </ul>
                 </MDBCol>
                 <MDBCol lg='3' md='6'>
-                    <MDBTypography variant='h5' className='mb-4 text-muted'>Multi Services</MDBTypography>
+                    <MDBTypography variant='h5' className='mb-4 text-white'>Multi Services</MDBTypography>
                     <ul className='text-white px-3 mb-0'>
                         <li>Recharge any Mobile Phone</li>
                         <li>Top-Up All DTH Services</li>
@@ -37,7 +37,7 @@ const Footer = () => {
                     </ul>
                 </MDBCol>
                 <MDBCol lg='3' md='6'>
-                    <MDBTypography variant='h5' className='mb-4 text-muted' >About</MDBTypography>
+                    <MDBTypography variant='h5' className='mb-4 text-white' >About</MDBTypography>
                     <ul className='text-white p-0 mb-0 list-unstyled footer-link'>
                         <li><a href="#">contact us</a></li>
                         <li><a href="#">about us</a></li>
@@ -48,7 +48,7 @@ const Footer = () => {
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
-        <div className='text-center p-3 border-top text-muted'>Copyright &copy; {new Date().getFullYear()}{' '}, badipay.in, All rights reserved</div>
+        <div className='text-center p-3 border-top text-white'>Copyright &copy; {new Date().getFullYear()}{' '}, badipay.in, All rights reserved</div>
     </MDBFooter>
     )
 }

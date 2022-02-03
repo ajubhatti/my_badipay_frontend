@@ -30,59 +30,81 @@ const DashBoard = () => {
 
     return (
         <div>
-            <div className='container-fluid'>
+            <div className='section-space bg-light'>
+            <div className='container-xl'>
                 <div className='row'>
-                    <div className='col-12 p-0'>
-                    <h3 className='text-center py-5 mb-0 w-75 mx-auto'>Recharge &amp; pay bills, book flights &amp; movie tickets, open a savings account, invest in stocks &amp; mutual funds, and do a lot more.</h3>
-                        <img src='./assets/images/10107.jpg' className='img-fluid' />
+                    <div className='col-12 p-0 text-center'>
+                        <h5 className='subtitle'>what we do</h5>
+                        <h3 className='section-title'>Simple, fast and Hassle Free payments</h3>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-6 text-right'>
+                        <ul className='list-unstyled feature-list'>
+                            <li>
+                                <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
+                                <div>
+                                    <h4>Service title</h4>
+                                    <p>Recharge Prepaid Mobile</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span><img src='./assets/images/home.png' className='img-fluid' /></span>
+                                <div>
+                                    <h4>Service title</h4>
+                                    <p>Pay rent payment</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span><img src='./assets/images/idea.png' className='img-fluid' /></span>
+                                <div>
+                                    <h4>Service title</h4>
+                                    <p>pay electricity bill</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span><img src='./assets/images/satellite.png' className='img-fluid' /></span>
+                                <div>
+                                    <h4>Service title</h4>
+                                    <p>Recharge DTH connection</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className='col-md-6'>
+                        <ul className='list-unstyled feature-list'>
+                            <li>
+                                <span><img src='./assets/images/gas-cylinder.png' className='img-fluid' /></span>
+                                <div>
+                                    <h4>Service title</h4>
+                                    <p>book gas cylinder</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span><img src='./assets/images/credit-cards.png' className='img-fluid' /></span>
+                                <div>
+                                    <h4>Service title</h4>
+                                    <p>pay credit card bill</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span><img src='./assets/images/flight.png' className='img-fluid' /></span>
+                                <div>
+                                    <h4>Service title</h4>
+                                    <p>book flight tickets</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span><img src='./assets/images/investing.png' className='img-fluid' /></span>
+                                <div>
+                                    <h4>Service title</h4>
+                                    <p>invest in stock</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div className='bg-light'>
-                <div className='container-xl'>
-                    <div className='row py-5'>
-                        <div className='col-md-6 text-right'>
-                            <ul className='list-unstyled feature-list text-right'>
-                                <li>
-                                    <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
-                                    <p>Recharge Prepaid Mobile</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/home.png' className='img-fluid' /></span>
-                                    <p>Pay rent payment</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/idea.png' className='img-fluid' /></span>
-                                    <p>pay electricity bill</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/satellite.png' className='img-fluid' /></span>
-                                    <p>Recharge DTH connection</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className='col-md-6'>
-                            <ul className='list-unstyled feature-list'>
-                                <li>
-                                    <span><img src='./assets/images/gas-cylinder.png' className='img-fluid' /></span>
-                                    <p>book gas cylinder</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/credit-cards.png' className='img-fluid' /></span>
-                                    <p>pay credit card bill</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/flight.png' className='img-fluid' /></span>
-                                    <p>book flight tickets</p>
-                                </li>
-                                <li>
-                                    <span><img src='./assets/images/investing.png' className='img-fluid' /></span>
-                                    <p>invest in stock</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
             {/* <h1>To Do List</h1>
             <Link 

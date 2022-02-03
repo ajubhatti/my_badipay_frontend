@@ -12,6 +12,13 @@ import {
   MDBNavbarLink,
   MDBBtn,
   MDBCollapse,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter, MDBTypography, MDBInput,
   MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem, MDBDropdownLink
 } from 'mdb-react-ui-kit';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -21,6 +28,8 @@ import { faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/fre
 
 const Header = () => {
     const [showBasic, setShowBasic] = useState(false);
+    const [centredModal, setCentredModal] = useState(false);
+    const toggleShow = () => setCentredModal(!centredModal);
     return (
         <div className='header'>
         <MDBContainer fluid>
@@ -58,7 +67,7 @@ const Header = () => {
                 </MDBNavbarToggler>
 
                 <MDBCollapse navbar show={showBasic}>
-                <MDBNavbarNav className='mr-auto mb-2 mb-lg-0 justify-content-end'>
+                <MDBNavbarNav className='mr-auto mb-2 mb-lg-0 justify-content-end align-items-center'>
                     <MDBNavbarItem>
                     <MDBNavbarLink active aria-current='page' href='#'>
                         Home
@@ -76,21 +85,25 @@ const Header = () => {
                     <MDBNavbarItem>
                     <MDBNavbarLink href='#'>contact us</MDBNavbarLink>
                     </MDBNavbarItem>
-                    <MDBNavbarItem className='user_block'>
-                    <MDBBtn className='font-weight-bold' rounded>Button</MDBBtn>
+                    <MDBNavbarItem>
+                    <MDBNavbarLink href='#'>
+                        <div className='wallet'>
+                            <img src='./assets/images/wallet.png' className='img-fluid' />
+                        </div>
+                    </MDBNavbarLink>
                     </MDBNavbarItem>
                     <MDBNavbarItem>
                     <MDBDropdown>
-                        <MDBDropdownToggle rounded>Dropdown button</MDBDropdownToggle>
+                        <MDBDropdownToggle className='nav-link' color='link'>Ezaz</MDBDropdownToggle>
                         <MDBDropdownMenu>
                             <MDBDropdownItem>
-                            <MDBDropdownLink href="#">Action</MDBDropdownLink>
+                            <MDBDropdownLink href="#">My Profile</MDBDropdownLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem>
-                            <MDBDropdownLink href="#">Another action</MDBDropdownLink>
+                            <MDBDropdownLink onClick={toggleShow} href="#">Wallet request</MDBDropdownLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem>
-                            <MDBDropdownLink href="#">Something else here</MDBDropdownLink>
+                            <MDBDropdownLink href="#">Sign out</MDBDropdownLink>
                             </MDBDropdownItem>
                         </MDBDropdownMenu>
                         </MDBDropdown>
@@ -99,6 +112,80 @@ const Header = () => {
                 </MDBCollapse>
             </MDBContainer>
         </MDBNavbar>
+        <MDBModal tabIndex='-1' show={centredModal} setShow={setCentredModal}>
+        <MDBModalDialog centered>
+          <MDBModalContent>
+            <MDBModalHeader>
+              <MDBModalTitle>Wallet Request</MDBModalTitle>
+              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+            </MDBModalHeader>
+            <MDBModalBody>
+            <MDBRow className='align-items-center mb-3'>
+                <MDBCol lg='4' md='12'>
+                    <label>Payment type</label>
+                </MDBCol>
+                <MDBCol lg='8' md='12'>                    
+                    <MDBInput label='Enter payment type' type='text' />
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className='align-items-center mb-3'>
+                <MDBCol lg='4' md='12'>
+                    <label>Bank</label>
+                </MDBCol>
+                <MDBCol lg='8' md='12'>                    
+                    <MDBInput label='Enter Bank' type='text' />
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className='align-items-center mb-3'>
+                <MDBCol lg='4' md='12'>
+                    <label>Amount</label>
+                </MDBCol>
+                <MDBCol lg='8' md='12'>                    
+                    <MDBInput label='Enter Amount' type='text' />
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className='align-items-center mb-3'>
+                <MDBCol lg='4' md='12'>
+                    <label>Reference Number</label>
+                </MDBCol>
+                <MDBCol lg='8' md='12'>                    
+                    <MDBInput label='Enter Reference Number' type='text' />
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className='align-items-center mb-3'>
+                <MDBCol lg='4' md='12'>
+                    <label>Deposite Bank</label>
+                </MDBCol>
+                <MDBCol lg='8' md='12'>                    
+                    <MDBInput label='Enter Deposite Bank' type='text' />
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className='align-items-center mb-3'>
+                <MDBCol lg='4' md='12'>
+                    <label>Deposite Branch</label>
+                </MDBCol>
+                <MDBCol lg='8' md='12'>                    
+                    <MDBInput label='Enter Deposite Branch' type='text' />
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className='align-items-center mb-3'>
+                <MDBCol lg='4' md='12'>
+                    <label>Remark</label>
+                </MDBCol>
+                <MDBCol lg='8' md='12'>                    
+                    <MDBInput label='Enter Remark' textarea rows={4} />
+                </MDBCol>
+            </MDBRow>
+            </MDBModalBody>
+            <MDBModalFooter>
+              <MDBBtn color='light' onClick={toggleShow}>
+                Cancel
+              </MDBBtn>
+              <MDBBtn>Submit</MDBBtn>
+            </MDBModalFooter>
+          </MDBModalContent>
+        </MDBModalDialog>
+        </MDBModal>
         </div>
     )
 }
