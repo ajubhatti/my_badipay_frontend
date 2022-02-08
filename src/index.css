@@ -25,7 +25,8 @@ code {
 }
 a, .btn-outline-primary{color: var(--mdb-primary-rgb);}
 .btn-outline-primary{border-color: var(--mdb-primary-rgb);}
-
+.btn-secondary{background-color: var(--mdb-secondary);}
+.btn-secondary:hover{background-color: var(--mdb-primary);}
 .btn-primary:hover{background-color: rgba(var(--mdb-secondary-rgb), var(--mdb-bg-opacity)) !important;}
 .btn-outline-primary:hover{border-color: var(--mdb-secondary);color: var(--mdb-secondary);}
 .bg-primary, .btn-primary {
@@ -33,7 +34,13 @@ a, .btn-outline-primary{color: var(--mdb-primary-rgb);}
   background-color: rgba(var(--mdb-primary-rgb), var(--mdb-bg-opacity)) !important;
 }
 
-
+.form-outline {
+  position: relative;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.form-outline .form-control~.form-label{padding-top: 0.5rem;background: #fff;}
 .subtitle {
   font-size: 14px;
   font-weight: 500;

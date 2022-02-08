@@ -1,191 +1,226 @@
 import React, { useState } from 'react';
 import './Header.css';
-import {
-  MDBContainer,
-  MDBRow, MDBCol,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBIcon,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBBtn,
-  MDBCollapse,
-  MDBModal,
-  MDBModalDialog,
-  MDBModalContent,
-  MDBModalHeader,
-  MDBModalTitle,
-  MDBModalBody,
-  MDBModalFooter, MDBTypography, MDBInput,
-  MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem, MDBDropdownLink
-} from 'mdb-react-ui-kit';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons' 
+
 
 const Header = () => {
     const [showBasic, setShowBasic] = useState(false);
-    const [centredModal, setCentredModal] = useState(false);
-    const toggleShow = () => setCentredModal(!centredModal);
     return (
         <div className='header'>
-        <MDBContainer fluid>
-            <MDBRow className="top-row bg-primary text-white">
-                <MDBCol>
+            <div className='container-fluid'>
+                <div className='row top-row bg-primary text-white'>
+                    <div className='col-6'>
                     <ul className="list-unstyled">
-                        <li><a href="mailto:test@gmail.com"><FontAwesomeIcon icon={faEnvelope} /> test@mail.com</a></li>
-                        <li><a href="tel:+9123456789"><FontAwesomeIcon icon={faPhone} /> 123-456-7890</a></li>
+                        <li><a href="mailto:test@gmail.com"><i className='fa fa-envelop'></i> test@mail.com</a></li>
+                        <li><a href="tel:+9123456789"><i className='fa fa-phone'></i> 123-456-7890</a></li>
                     </ul>
-                </MDBCol>
-                <MDBCol className="text-end"> Follow us on: 
+                    </div>
+                    <div className='col-6 text-end text-white'>
                     <ul className="list-unstyled d-inline-block">
-                        <li><a href="#"><FontAwesomeIcon icon={faFacebookF} /></a></li>
-                        <li><a href="#"><FontAwesomeIcon icon={faInstagram} /></a></li>
-                        <li><a href="#"><FontAwesomeIcon icon={faTwitter} /></a></li>
-                        <li><a href="#"><FontAwesomeIcon icon={faYoutube} /></a></li>
+                        <li><a href="#"><i className='fa fa-facebook'></i></a></li>
+                        <li><a href="#"><i className='fa fa-instagram'></i></a></li>
+                        <li><a href="#"><i className='fa fa-twitter'></i></a></li>
+                        <li><a href="#"><i className='fa fa-youtube'></i></a></li>
                     </ul>
-                </MDBCol>
-            </MDBRow>
-        </MDBContainer>
-        <MDBNavbar expand='lg' white bgColor='white'>
-            <MDBContainer>
-                <div className='logo'>
-                    <MDBNavbarBrand href='#'>                    
-                        <img src='./assets/images/logo.jpg' className='img-fluid' />
-                    </MDBNavbarBrand>
+                    </div>
                 </div>
-                <MDBNavbarToggler
-                aria-controls='navbarSupportedContent'
-                aria-expanded='false'
-                aria-label='Toggle navigation'
-                onClick={() => setShowBasic(!showBasic)}
-                >
-                <FontAwesomeIcon icon={faBars} />
-                </MDBNavbarToggler>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                {/* <!-- Container wrapper --> */}
+                <div class="container-fluid">
+                    {/* <!-- Toggle button --> */}
+                    <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    >
+                    <i class="fa fa-bars"></i>
+                    </button>
 
-                <MDBCollapse navbar show={showBasic}>
-                <MDBNavbarNav className='mr-auto mb-2 mb-lg-0 justify-content-end align-items-center'>
-                    <MDBNavbarItem>
-                    <MDBNavbarLink active aria-current='page' href='#'>
-                        Home
-                    </MDBNavbarLink>
-                    </MDBNavbarItem>
-                    <MDBNavbarItem>
-                    <MDBNavbarLink href='#'>Service</MDBNavbarLink>
-                    </MDBNavbarItem>
-                    <MDBNavbarItem>
-                    <MDBNavbarLink href='#'>bussiness opportunity</MDBNavbarLink>
-                    </MDBNavbarItem>
-                    <MDBNavbarItem>
-                    <MDBNavbarLink href='#'>download</MDBNavbarLink>
-                    </MDBNavbarItem>
-                    <MDBNavbarItem>
-                    <MDBNavbarLink href='#'>contact us</MDBNavbarLink>
-                    </MDBNavbarItem>
-                    <MDBNavbarItem>
-                    <MDBNavbarLink href='#'>
-                        <div className='wallet'>
-                            <img src='./assets/images/wallet.png' className='img-fluid' />
-                        </div>
-                    </MDBNavbarLink>
-                    </MDBNavbarItem>
-                    <MDBNavbarItem>
-                    <MDBDropdown>
-                        <MDBDropdownToggle className='nav-link' color='link'>Ezaz</MDBDropdownToggle>
-                        <MDBDropdownMenu>
-                            <MDBDropdownItem>
-                            <MDBDropdownLink href="#">My Profile</MDBDropdownLink>
-                            </MDBDropdownItem>
-                            <MDBDropdownItem>
-                            <MDBDropdownLink onClick={toggleShow} href="#">Wallet request</MDBDropdownLink>
-                            </MDBDropdownItem>
-                            <MDBDropdownItem>
-                            <MDBDropdownLink href="#">Sign out</MDBDropdownLink>
-                            </MDBDropdownItem>
-                        </MDBDropdownMenu>
-                        </MDBDropdown>
-                    </MDBNavbarItem>
-                </MDBNavbarNav>
-                </MDBCollapse>
-            </MDBContainer>
-        </MDBNavbar>
-        <MDBModal tabIndex='-1' show={centredModal} setShow={setCentredModal}>
-        <MDBModalDialog centered>
-          <MDBModalContent>
-            <MDBModalHeader>
-              <MDBModalTitle>Wallet Request</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
-            </MDBModalHeader>
-            <MDBModalBody>
-            <MDBRow className='align-items-center mb-3'>
-                <MDBCol lg='4' md='12'>
-                    <label>Payment type</label>
-                </MDBCol>
-                <MDBCol lg='8' md='12'>                    
-                    <MDBInput label='Enter payment type' type='text' />
-                </MDBCol>
-            </MDBRow>
-            <MDBRow className='align-items-center mb-3'>
-                <MDBCol lg='4' md='12'>
-                    <label>Bank</label>
-                </MDBCol>
-                <MDBCol lg='8' md='12'>                    
-                    <MDBInput label='Enter Bank' type='text' />
-                </MDBCol>
-            </MDBRow>
-            <MDBRow className='align-items-center mb-3'>
-                <MDBCol lg='4' md='12'>
-                    <label>Amount</label>
-                </MDBCol>
-                <MDBCol lg='8' md='12'>                    
-                    <MDBInput label='Enter Amount' type='text' />
-                </MDBCol>
-            </MDBRow>
-            <MDBRow className='align-items-center mb-3'>
-                <MDBCol lg='4' md='12'>
-                    <label>Reference Number</label>
-                </MDBCol>
-                <MDBCol lg='8' md='12'>                    
-                    <MDBInput label='Enter Reference Number' type='text' />
-                </MDBCol>
-            </MDBRow>
-            <MDBRow className='align-items-center mb-3'>
-                <MDBCol lg='4' md='12'>
-                    <label>Deposite Bank</label>
-                </MDBCol>
-                <MDBCol lg='8' md='12'>                    
-                    <MDBInput label='Enter Deposite Bank' type='text' />
-                </MDBCol>
-            </MDBRow>
-            <MDBRow className='align-items-center mb-3'>
-                <MDBCol lg='4' md='12'>
-                    <label>Deposite Branch</label>
-                </MDBCol>
-                <MDBCol lg='8' md='12'>                    
-                    <MDBInput label='Enter Deposite Branch' type='text' />
-                </MDBCol>
-            </MDBRow>
-            <MDBRow className='align-items-center mb-3'>
-                <MDBCol lg='4' md='12'>
-                    <label>Remark</label>
-                </MDBCol>
-                <MDBCol lg='8' md='12'>                    
-                    <MDBInput label='Enter Remark' textarea rows={4} />
-                </MDBCol>
-            </MDBRow>
-            </MDBModalBody>
-            <MDBModalFooter>
-              <MDBBtn color='light' onClick={toggleShow}>
-                Cancel
-              </MDBBtn>
-              <MDBBtn>Submit</MDBBtn>
-            </MDBModalFooter>
-          </MDBModalContent>
-        </MDBModalDialog>
-        </MDBModal>
+                    {/* <!-- Collapsible wrapper --> */}
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    {/* <!-- Navbar brand --> */}
+                    <a class="navbar-brand mt-2 mt-lg-0 logo" href="#">
+                        <img src='assets/images/logo.jpg' className='img-fluid' />
+                    </a>
+                    {/* <!-- Left links --> */}
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Bussiness Opportunity</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Download</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    {/* <!-- Left links --> */}
+                    </div>
+                    {/* <!-- Collapsible wrapper --> */}
+
+                    {/* <!-- Right elements --> */}
+                    <div class="d-flex align-items-center">
+                    {/* <!-- Icon --> */}
+                    <a class="wallet me-3" href="#">
+                        <img src='assets/images/wallet.png' className='img-fluid' />
+                    </a>
+                    {/* <!-- Notifications --> */}
+                    <div class="dropdown">
+                        <a
+                        class="text-reset me-3 dropdown-toggle hidden-arrow"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-mdb-toggle="dropdown"
+                        aria-expanded="false"
+                        >
+                        <i class="fa fa-bell"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                        </a>
+                        <ul
+                        class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuLink"
+                        >
+                        <li>
+                            <a class="dropdown-item" href="#">Some news</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Another news</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                        </ul>
+                    </div>
+                    {/* <!-- Avatar --> */}
+                    <div class="dropdown">
+                        <a
+                        class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                        href="#"
+                        id="navbarDropdownMenuAvatar"
+                        role="button"
+                        data-mdb-toggle="dropdown"
+                        aria-expanded="false"
+                        >
+                        <img
+                            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                            class="rounded-circle"
+                            height="25"
+                            alt="Black and White Portrait of a Man"
+                            loading="lazy"
+                        />
+                        </a>
+                        <ul
+                        class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuAvatar"
+                        >
+                        <li>
+                            <a class="dropdown-item" href="#">My profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Wallet request</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </li>
+                        </ul>
+                    </div>
+                    </div>
+                    {/* <!-- Right elements --> */}
+                </div>
+                {/* <!-- Container wrapper --> */}
+            </nav>
+            {/* <!-- Navbar --> */}
+            {/* <MDBModal tabIndex='-1' show={centredModal} setShow={setCentredModal}>
+            <MDBModalDialog centered>
+            <MDBModalContent>
+                <MDBModalHeader>
+                <MDBModalTitle>Wallet Request</MDBModalTitle>
+                <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+                </MDBModalHeader>
+                <MDBModalBody>
+                <MDBRow className='align-items-center mb-3'>
+                    <MDBCol lg='4' md='12'>
+                        <label>Payment type</label>
+                    </MDBCol>
+                    <MDBCol lg='8' md='12'>   
+                    <select class="browser-default custom-select">
+                    <option selected="">Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    </select>                 
+                        <MDBInput label='Enter payment type' type='text' />
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow className='align-items-center mb-3'>
+                    <MDBCol lg='4' md='12'>
+                        <label>Bank</label>
+                    </MDBCol>
+                    <MDBCol lg='8' md='12'>                    
+                        <MDBInput label='Enter Bank' type='text' />
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow className='align-items-center mb-3'>
+                    <MDBCol lg='4' md='12'>
+                        <label>Amount</label>
+                    </MDBCol>
+                    <MDBCol lg='8' md='12'>                    
+                        <MDBInput label='Enter Amount' type='text' />
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow className='align-items-center mb-3'>
+                    <MDBCol lg='4' md='12'>
+                        <label>Reference Number</label>
+                    </MDBCol>
+                    <MDBCol lg='8' md='12'>                    
+                        <MDBInput label='Enter Reference Number' type='text' />
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow className='align-items-center mb-3'>
+                    <MDBCol lg='4' md='12'>
+                        <label>Deposite Bank</label>
+                    </MDBCol>
+                    <MDBCol lg='8' md='12'>                    
+                        <MDBInput label='Enter Deposite Bank' type='text' />
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow className='align-items-center mb-3'>
+                    <MDBCol lg='4' md='12'>
+                        <label>Deposite Branch</label>
+                    </MDBCol>
+                    <MDBCol lg='8' md='12'>                    
+                        <MDBInput label='Enter Deposite Branch' type='text' />
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow className='align-items-center mb-3'>
+                    <MDBCol lg='4' md='12'>
+                        <label>Remark</label>
+                    </MDBCol>
+                    <MDBCol lg='8' md='12'>                    
+                        <MDBInput label='Enter Remark' textarea rows={4} />
+                    </MDBCol>
+                </MDBRow>
+                </MDBModalBody>
+                <MDBModalFooter>
+                <MDBBtn color='light' onClick={toggleShow}>
+                    Cancel
+                </MDBBtn>
+                <MDBBtn>Submit</MDBBtn>
+                </MDBModalFooter>
+            </MDBModalContent>
+            </MDBModalDialog>
+            </MDBModal> */}
         </div>
     )
 }

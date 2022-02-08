@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import './LoginRegisterComponent.css';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import { authenticationService } from "../services/authentication.service";
 import { accountService } from '../services/account.service';
 import { alertService } from "../services";
@@ -53,68 +52,37 @@ const RegisterComponent = () => {
 
     return (
         <div className="main-wrapper">
-            <MDBContainer fluid className="register-wrap">
-                <MDBRow>
-                    <MDBCol></MDBCol>
-                    <MDBCol>
-                        <div className="login-wrapper">
-                            <MDBTypography variant='h4'  colorText="secondary" align='center' className="mb-4">Welcome into Badipay.in</MDBTypography>        
-                            <MDBInput className="mb-3" label='Enter First Name' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setFirstName(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Last Name' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setLastName(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Email' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setEmail(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Phone Number' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setPhoneNumber(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Password' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setPassword(e.target.value)}/>
-                            <MDBInput className="mb-3" label='Enter Confirm Password' id='form1' type='text' autoComplete="new-password" onChange={(e )=>setPassword(e.target.value)}/>
-                            <div className="d-grid gap-2">
-                                <MDBBtn onClick={handlelogin}>Register</MDBBtn>
-                                <MDBTypography tag='small' align='right'><Link to="/" className="font-weight-bold">Already have an Account?</Link></MDBTypography>
-                            </div>
-                            {/* <div className="field-wrapper">
-                                <label>First Name</label>
-                                <div>
-                                    <input type="text"  placeholder="Enter First Name" onChange={(e)=>setFirstName(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            <div className="field-wrapper">
-                                <label>Last Name</label>
-                                <div>
-                                    <input type="text"  placeholder="Enter Last Name" onChange={(e)=>setLastName(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            <div className="field-wrapper">
-                                <label>Email</label>
-                                <div>
-                                    <input type="text"  placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            <div className="field-wrapper">
-                                <label>Phone Number</label>
-                                <div>
-                                    <input type="text"  placeholder="Enter Phone Number" onChange={(e)=>setPhoneNumber(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            <div className="field-wrapper">
-                                <label>Password</label>
-                                <div className="pass-wrapper">
-                                    <input placeholder="Enter Password" type="password"
-                                        on)=>setPassword(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            <div className="Button">
-                                <input type="button" value={"Submit"} onClick={handlelogin} />
-                            </div>
-                            <div className="reset-Button">
-                                <Link to='/'>Login</Link>
-                            </div> */}
-                        </div>
-                    </MDBCol>
-                </MDBRow>
-            </MDBContainer>
+            <div className="container-fluid register-wrap">
+                <div className="login-wrapper">
+                    <h4>Welcome into Badipay.in</h4>
+                    <div class="form-outline">
+                        <input type="text" id="form12" class="form-control" />
+                        <label class="form-label" for="form12">Enter First Name</label>
+                    </div>
+                    <div class="form-outline">
+                        <input type="text" id="form12" class="form-control" />
+                        <label class="form-label" for="form12">Enter Last Name</label>
+                    </div>
+                    <div class="form-outline">
+                        <input type="text" id="form12" class="form-control" />
+                        <label class="form-label" for="form12">Enter Email</label>
+                    </div>
+                    <div class="form-outline">
+                        <input type="text" id="form12" class="form-control" />
+                        <label class="form-label" for="form12">Enter Phone Number</label>
+                    </div>
+                    <div class="form-outline">
+                        <input type="password" id="form12" class="form-control" />
+                        <label class="form-label" for="form12">Enter Password</label>
+                    </div>
+                    <div class="form-outline">
+                        <input type="password" id="form12" class="form-control" />
+                        <label class="form-label" for="form12">Enter Confirm Password</label>
+                    </div>                    
+                    <p className="text-end"><a href="#" className="font-weight-bold"><Link to="/login">Already have an Account?</Link></a></p>
+                    <button className="btn btn-primary btn-block">Login</button>
+                </div>
+            </div>
             
         </div>
     );

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { authenticationService } from "../services/authentication.service";
 import './LoginRegisterComponent.css';
-import { MDBRow, MDBCol, MDBInput, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");
@@ -24,38 +23,28 @@ const LoginComponent = () => {
 
     return (
         <div className="main-wrapper">
+            {/* login wrapper  */}
             <div className="login-wrapper">  
-                <MDBTypography variant='h4' align='center' colorText="secondary" className="mb-4">To Login into your Badipay Web account</MDBTypography>
-                <MDBInput className="mb-3" label='Enter Email' id='form1' type='text' {...email} onChange={(e)=>setEmail(e.target.value)} autoComplete="new-password" />
-                <MDBInput className="mb-3" label='Enter Password' id='form1' type='text' autoComplete="new-password" onChange={(e)=>setPassword(e.target.value)}/>
-                <div className="d-grid gap-2">
-                    <MDBTypography tag='small' align='right'><a href="" className="font-weight-bold">Forgot Password?</a></MDBTypography>
-                    <Link className="d-block" to='/task'><MDBBtn className="w-100" onClick={handlelogin}>Login</MDBBtn></Link>
-                    <Link className="d-block" to='/registers'><MDBBtn className="w-100" outline to='/registers'>Register</MDBBtn></Link>
+                <h4>To Login into your Badipay Web account</h4>
+                <div class="form-outline">
+                    <input type="text" id="form12" class="form-control" />
+                    <label class="form-label" for="form12">Enter Email</label>
                 </div>
-                {/* <div className="field-wrapper">
-                    <label>Email</label>
-                    <div>
-                        <input type="text" {...email} placeholder="Enter Email" onChange={(e :
-                            any)=>setEmail(e.target.value)}
-                        autoComplete="new-password" />
-                    </div>
-                </div> */}
-                {/* <div className="field-wrapper">
-                    <label>Password</label>
-                    <div className="pass-wrapper">
-                        <input placeholder="Enter Password" // type="password" // {...password} type="password"
-                            autoComplete="new-password" onChange={(e : any)=>setPassword(e.target.value)}
-                        />
-                    </div>
-                </div> */}
-                {/* <div className="Button">
-                    <input type="button" value="Login" onClick={handlelogin} />
+                <div class="form-outline">
+                    <input type="password" id="form12" class="form-control" />
+                    <label class="form-label" for="form12">Enter Password</label>
                 </div>
-                <div className="reset-Button">
-                    <Link to='/registers'>Register</Link>
-                </div> */}
+                <p className="text-end"><a className="small text-primary font-weight-bold" href="#">Forgot Password?</a></p>
+                <div className="row">
+                    <div className="col-6">
+                        <button className="btn btn-secondary btn-block"><Link to="/registers">Register</Link></button>
+                    </div>
+                    <div className="col-6">
+                        <button className="btn btn-primary btn-block">Login</button>
+                    </div>
+                </div>
             </div>
+            {/* login wrapper end */}
         </div>
     );
 }

@@ -9,4 +9,5 @@
 .top-row ul li a svg{width: 14px;}
 .top-row ul{margin-bottom: 0;}
 .top-row ul li{display: inline-block;}
-.header .nav-item .nav-link .wallet{max-width: 30px;}
+.header .wallet{max-width: 30px;}
+.header .navbar .dropdown i{font-size: 18px;}
