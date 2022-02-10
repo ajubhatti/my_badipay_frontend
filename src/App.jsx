@@ -2,6 +2,8 @@ import React,{ useState, useEffect } from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import 'mdb-ui-kit/css/mdb.min.css';
+import * as mdb from 'mdb-ui-kit'; // lib
+import { Input } from 'mdb-ui-kit'; // module
 import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
 import { BrowserRouter, Redirect, Route, Switch ,useLocation} from 'react-router-dom';

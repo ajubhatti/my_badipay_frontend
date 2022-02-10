@@ -33,13 +33,16 @@ a, .btn-outline-primary{color: var(--mdb-primary-rgb);}
   --mdb-bg-opacity: 1;
   background-color: rgba(var(--mdb-primary-rgb), var(--mdb-bg-opacity)) !important;
 }
-
-.form-outline {
+.carousel-control-next-icon:after, .carousel-control-prev-icon:after{font-family: 'FontAwesome';}
+.carousel-control-prev-icon:after{content: "\f104";}
+.carousel-control-next-icon:after{content: "\f105";}
+.form-outline, .form-control {
   position: relative;
   border: 1px solid #eee;
   border-radius: 3px;
   margin-bottom: 20px;
 }
+.form-control{font-size: 14px;}
 .form-outline .form-control~.form-label{padding-top: 0.5rem;background: #fff;}
 .subtitle {
   font-size: 14px;
@@ -56,4 +59,27 @@ a, .btn-outline-primary{color: var(--mdb-primary-rgb);}
 }
 .section-space{
   padding: 70px 0;
+}
+
+/* recharge tab css */
+.recharge-tab{
+  margin-top: -46px;
+  position: relative;
+  z-index: 9;
+  background: #fff;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/* home banner css  */
+.home-banner .carousel-item{position: relative;}
+.home-banner .carousel-item::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--mdb-primary);
+  opacity: 0.7;
 }

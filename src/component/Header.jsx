@@ -24,12 +24,12 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-lg">
+            <nav className="navbar navbar-expand-lg">
                 {/* <!-- Container wrapper --> */}
-                <div class="container-fluid">
+                <div className="container-fluid">
                     {/* <!-- Toggle button --> */}
                     <button
-                    class="navbar-toggler"
+                    className="navbar-toggler"
                     type="button"
                     data-mdb-toggle="collapse"
                     data-mdb-target="#navbarSupportedContent"
@@ -37,31 +37,31 @@ const Header = () => {
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                     >
-                    <i class="fa fa-bars"></i>
+                    <i className="fa fa-bars"></i>
                     </button>
 
                     {/* <!-- Collapsible wrapper --> */}
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     {/* <!-- Navbar brand --> */}
-                    <a class="navbar-brand mt-2 mt-lg-0 logo" href="#">
+                    <a className="navbar-brand mt-2 mt-lg-0 logo" href="#">
                         <img src='assets/images/logo.jpg' className='img-fluid' />
                     </a>
                     {/* <!-- Left links --> */}
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
+                        <a className="nav-link" href="#">Home</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#">Services</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Bussiness Opportunity</a>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#">Bussiness Opportunity</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Download</a>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#">Download</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#">Contact Us</a>
                         </li>
                     </ul>
                     {/* <!-- Left links --> */}
@@ -69,43 +69,43 @@ const Header = () => {
                     {/* <!-- Collapsible wrapper --> */}
 
                     {/* <!-- Right elements --> */}
-                    <div class="d-flex align-items-center">
+                    <div className="d-flex align-items-center">
                     {/* <!-- Icon --> */}
-                    <a class="wallet me-3" href="#">
+                    <a className="wallet me-3" href="#">
                         <img src='assets/images/wallet.png' className='img-fluid' />
                     </a>
                     {/* <!-- Notifications --> */}
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <a
-                        class="text-reset me-3 dropdown-toggle hidden-arrow"
+                        className="text-reset me-3 dropdown-toggle hidden-arrow"
                         href="#"
                         id="navbarDropdownMenuLink"
                         role="button"
                         data-mdb-toggle="dropdown"
                         aria-expanded="false"
                         >
-                        <i class="fa fa-bell"></i>
-                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                        <i className="fa fa-bell"></i>
+                        <span className="badge rounded-pill badge-notification bg-danger">1</span>
                         </a>
                         <ul
-                        class="dropdown-menu dropdown-menu-end"
+                        className="dropdown-menu dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuLink"
                         >
                         <li>
-                            <a class="dropdown-item" href="#">Some news</a>
+                            <a className="dropdown-item" href="#">Some news</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Another news</a>
+                            <a className="dropdown-item" href="#">Another news</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a className="dropdown-item" href="#">Something else here</a>
                         </li>
                         </ul>
                     </div>
                     {/* <!-- Avatar --> */}
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <a
-                        class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                        className="dropdown-toggle d-flex align-items-center hidden-arrow"
                         href="#"
                         id="navbarDropdownMenuAvatar"
                         role="button"
@@ -114,24 +114,24 @@ const Header = () => {
                         >
                         <img
                             src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                            class="rounded-circle"
+                            className="rounded-circle"
                             height="25"
                             alt="Black and White Portrait of a Man"
                             loading="lazy"
                         />
                         </a>
                         <ul
-                        class="dropdown-menu dropdown-menu-end"
+                        className="dropdown-menu dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuAvatar"
                         >
                         <li>
-                            <a class="dropdown-item" href="#">My profile</a>
+                            <a className="dropdown-item" href="#">My profile</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Wallet request</a>
+                            <a className="dropdown-item" href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">Wallet request</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a className="dropdown-item" href="#">Logout</a>
                         </li>
                         </ul>
                     </div>
@@ -140,6 +140,89 @@ const Header = () => {
                 </div>
                 {/* <!-- Container wrapper --> */}
             </nav>
+            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Wallet Request</h5>
+                    <button type="button" className="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <div className='form-wrap'>
+                        <div className='row'>
+                            <div className="col-md-4">
+                                <label className="form-label" for="form12">Payment Type</label>
+                            </div>
+                            <div className="col-md-8">
+                                <select className="form-control">
+                                    <option>type 1</option>
+                                    <option>type 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className="col-md-4">
+                                <label className="form-label" for="form12">Bank Type</label>
+                            </div>
+                            <div className="col-md-8">
+                                <select className="form-control">
+                                    <option>bank type 1</option>
+                                    <option>bank type 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className="col-md-4">
+                                <label className="form-label" for="form12">Amount</label>
+                            </div>
+                            <div className="col-md-8">
+                                <input type='text' className='form-control' placeholder='Enter Amount' />
+                            </div>
+                        </div>                        
+                        <div className='row'>
+                            <div className="col-md-4">
+                                <label className="form-label" for="form12">Reference Number</label>
+                            </div>
+                            <div className="col-md-8">
+                                <input type='text' className='form-control' placeholder='Enter Reference Number' />
+                            </div>
+                        </div>  
+                        <div className='row'>
+                            <div className="col-md-4">
+                                <label className="form-label" for="form12">Deposit Bank</label>
+                            </div>
+                            <div className="col-md-8">
+                                <select className="form-control">
+                                    <option>Deposit bank type 1</option>
+                                    <option>Deposit bank type 2</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <div className='row'>
+                            <div className="col-md-4">
+                                <label className="form-label" for="form12">Deposit Branch</label>
+                            </div>
+                            <div className="col-md-8">
+                                <input type='text' className='form-control' placeholder='Enter Deposit Branch' />
+                            </div>
+                        </div> 
+                        <div className='row'>
+                            <div className="col-md-4">
+                                <label className="form-label" for="form12">Remark</label>
+                            </div>
+                            <div className="col-md-8">
+                                <textarea className='form-control' placeholder='Enter Remark' rows={4} />
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-mdb-dismiss="modal">Cancel</button>
+                    <button type="button" className="btn btn-primary">Submit</button>
+                </div>
+                </div>
+            </div>
+            </div>
             {/* <!-- Navbar --> */}
             {/* <MDBModal tabIndex='-1' show={centredModal} setShow={setCentredModal}>
             <MDBModalDialog centered>
@@ -154,7 +237,7 @@ const Header = () => {
                         <label>Payment type</label>
                     </MDBCol>
                     <MDBCol lg='8' md='12'>   
-                    <select class="browser-default custom-select">
+                    <select className="browser-default custom-select">
                     <option selected="">Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>

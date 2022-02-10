@@ -26,13 +26,13 @@ const LoginComponent = () => {
             {/* login wrapper  */}
             <div className="login-wrapper">  
                 <h4>To Login into your Badipay Web account</h4>
-                <div class="form-outline">
-                    <input type="text" id="form12" class="form-control" />
-                    <label class="form-label" for="form12">Enter Email</label>
+                <div className="form-outline">
+                    <input type="text" id="form12" className="form-control" />
+                    <label className="form-label" for="form12">Enter Email</label>
                 </div>
-                <div class="form-outline">
-                    <input type="password" id="form12" class="form-control" />
-                    <label class="form-label" for="form12">Enter Password</label>
+                <div className="form-outline">
+                    <input type="password" id="form12" className="form-control" />
+                    <label className="form-label" for="form12">Enter Password</label>
                 </div>
                 <p className="text-end"><a className="small text-primary font-weight-bold" href="#">Forgot Password?</a></p>
                 <div className="row">

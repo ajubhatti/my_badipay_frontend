@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Footer.css';
 
 const Footer = () => {
-    console.log("footer")
     return (
         <footer className='bg-primary footer'>
             <div className='container-xl section-space'>

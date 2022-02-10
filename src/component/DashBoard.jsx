@@ -4,32 +4,98 @@ import { BehaviorSubject } from 'rxjs';
 import "./DashBoard.css";
 
 const DashBoard = () => {
-    // const [taskList, setTaskList] : any = useState([]);
-
-    // const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
-    // useEffect(() => {
-    //     getListOfUsers();
-    // }, []);
-
-    // const getListOfUsers = () => {
-    //     taskService.getByUserId(currentUserSubject.value._id).then(res=>{
-    //         console.log("lst --",res)
-    //         setTaskList(res)
-    //     })
-    // }
-
-    // const deleteTask = (id : any) => {
-        
-       
-    //     taskService.deleteTask(id).then(res=>{
-    //         var lst : any = taskList.filter((x : any) => x._id !== id);
-    //         console.log("delete task ---",lst)
-    //         setTaskList(lst);
-    //     });
-    // }
-
     return (
         <div>
+            {/* <!-- Carousel wrapper --> */}
+            <div id="carouselBasicExample" class="home-banner carousel slide carousel-fade" data-mdb-ride="carousel">
+            {/* <!-- Inner --> */}
+            <div class="carousel-inner">
+                {/* <!-- Single item --> */}
+                <div class="carousel-item active">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp" class="d-block w-100" alt="Sunset Over the City"/>
+                </div>
+                {/* <!-- Single item --> */}
+                <div class="carousel-item">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp" class="d-block w-100" alt="Canyon at Nigh"/>
+                </div>
+                {/* <!-- Single item --> */}
+                <div class="carousel-item">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp" class="d-block w-100" alt="Cliff Above a Stormy Sea"/>
+                </div>
+            </div>
+            {/* <!-- Inner --> */}
+
+            {/* <!-- Controls --> */}
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+            {/* <!-- Carousel wrapper --> */}
+            <div className='container-xl'>
+                {/* <!-- Tabs navs --> */}
+                <ul class="nav nav-tabs mb-3 recharge-tab" id="ex1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a
+                        class="nav-link active"
+                        id="ex1-tab-1"
+                        data-mdb-toggle="tab"
+                        href="#ex1-tabs-1"
+                        role="tab"
+                        aria-controls="ex1-tabs-1"
+                        aria-selected="true"
+                        >Tab 1</a
+                        >
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a
+                        class="nav-link"
+                        id="ex1-tab-2"
+                        data-mdb-toggle="tab"
+                        href="#ex1-tabs-2"
+                        role="tab"
+                        aria-controls="ex1-tabs-2"
+                        aria-selected="false"
+                        >Tab 2</a
+                        >
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a
+                        class="nav-link"
+                        id="ex1-tab-3"
+                        data-mdb-toggle="tab"
+                        href="#ex1-tabs-3"
+                        role="tab"
+                        aria-controls="ex1-tabs-3"
+                        aria-selected="false"
+                        >Tab 3</a
+                        >
+                    </li>
+                </ul>
+                {/* <!-- Tabs navs --> */}
+                <div class="tab-content" id="ex1-content">
+                    <div
+                        class="tab-pane fade show active"
+                        id="ex1-tabs-1"
+                        role="tabpanel"
+                        aria-labelledby="ex1-tab-1"
+                    >
+                        Tab 1 content
+                    </div>
+                    <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                        Tab 2 content
+                    </div>
+                    <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+                        Tab 3 content
+                    </div>
+                </div>
+                {/* <!-- Tabs content --> */}
+            </div>
+            {/* <!-- Tabs content --> */}
             <div className='section-space bg-light'>
             <div className='container-xl'>
                 <div className='row'>
@@ -106,51 +172,6 @@ const DashBoard = () => {
                 </div>
             </div>
             </div>
-            {/* <h1>To Do List</h1>
-            <Link 
-                to={`/task/add`} 
-                className="btn btn-sm btn-success mb-2">Add Task
-            </Link>
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th style={{ width: '30%' }}>description</th>
-                        <th style={{ width: '10%' }}></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {taskList && taskList.map((list : any) =>
-                        <tr key={list.id}>                            
-                            <td>{list.description}</td>                            
-                            <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`edit/${list._id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
-                                <button 
-                                onClick={() => deleteTask(list._id)} 
-                                className="btn btn-sm btn-danger btn-delete-user" disabled={list.isDeleting}>
-                                    {list.isDeleting 
-                                        ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
-                                    }
-                                </button>
-                            </td>
-                        </tr>
-                    )}
-                    {!taskList &&
-                        <tr>
-                            <td className="text-center">
-                                <div className="spinner-border spinner-border-lg align-center"></div>
-                            </td>
-                        </tr>
-                    }
-                    {taskList && !taskList.length &&
-                        <tr>
-                            <td className="text-center">
-                                <div className="p-2">No Task To Display</div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table> */}
         </div>
     );
 }
