@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { authenticationService } from "../services/authentication.service";
 import './LoginRegisterComponent.css';
+import TextField from '@mui/material/TextField';
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");
@@ -26,14 +27,18 @@ const LoginComponent = () => {
             {/* login wrapper  */}
             <div className="login-wrapper">  
                 <h4>To Login into your Badipay Web account</h4>
-                <div className="form-outline">
-                    <input type="text" id="form12" className="form-control" />
-                    <label className="form-label" for="form12">Enter Email</label>
-                </div>
-                <div className="form-outline">
-                    <input type="password" id="form12" className="form-control" />
-                    <label className="form-label" for="form12">Enter Password</label>
-                </div>
+                
+                <TextField
+                    required
+                    id="outlined-required"
+                    label="Enter Email"
+                />
+                <TextField
+                    id="outlined-password-input"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    />
                 <p className="text-end"><a className="small text-primary font-weight-bold" href="#">Forgot Password?</a></p>
                 <div className="row">
                     <div className="col-6">
