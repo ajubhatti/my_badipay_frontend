@@ -1,6 +1,17 @@
 import React, { useState } from "react";
+import { styled } from '@mui/material/styles';
 import WalletModal from "../containers/Modals/WalletModal";
 import "./Header.css";
+import {Container, Grid, Box, Paper} from '@mui/material';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  boxShadow: 'none',
+  background: 'transparent',
+  color: theme.palette.text.secondary,
+}));
 
 const Header = () => {
   const [showBasic, setShowBasic] = useState(false);
@@ -8,9 +19,9 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="container-fluid">
-        <div className="row top-row bg-primary text-white">
-          <div className="col-6">
+      <Grid container spacing={2} className='bg-primary top-row'>
+        <Grid item xs={6}>
+          <Item color='white'>
             <ul className="list-unstyled">
               <li>
                 <a href="mailto:test@gmail.com">
@@ -23,8 +34,10 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-          </div>
-          <div className="col-6 text-end text-white">
+          </Item>
+        </Grid>
+        <Grid item xs={6}>
+          <Item>
             <ul className="list-unstyled d-inline-block">
               <li>
                 <a href="#">
@@ -47,9 +60,9 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
+          </Item>
+        </Grid>
+      </Grid>
       <nav className="navbar navbar-expand-lg">
         {/* <!-- Container wrapper --> */}
         <div className="container-fluid">

@@ -23,6 +23,7 @@ code {
   --mdb-secondary-rgb: 242, 106, 25;
   --mdb-body-font-size: 14px
 }
+ul{margin-top: 0;}
 a, .btn-outline-primary{color: var(--mdb-primary-rgb);}
 .btn-outline-primary{border-color: var(--mdb-primary-rgb);}
 .btn-secondary{background-color: var(--mdb-secondary);}

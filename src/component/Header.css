@@ -3,8 +3,8 @@
 .header .nav-item .nav-link{transition: all .3s; padding: 5px 15px;font-weight: bold;color: #555;text-transform: capitalize;font-size: var(--mdb-body-font-size);}
 .header .nav-item .nav-link:hover{color: #ef6521;}
 .header .nav-item.user_block{margin: 0 15px;}
-.top-row{font-size: 14px;line-height: 30px;}
-.top-row ul li a{color: inherit;position: relative;padding: 0 8px;}
+.top-row{font-size: 14px;line-height: 30px;color:#fff}
+.top-row ul li a{color: #fff;position: relative;padding: 0 8px;}
 .top-row ul > li:not(:last-child) a{border-right: 1px solid rgba(255, 255, 255, .5);}
 .top-row ul li a svg{width: 14px;}
 .top-row ul{margin-bottom: 0;}

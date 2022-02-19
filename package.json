@@ -24,7 +24,6 @@
     "font-awesome": "^4.7.0",
     "formik": "^2.1.4",
     "history": "^4.10.1",
-    "mdb-ui-kit": "^3.10.2",
     "prop-types": "^15.7.2",
     "query-string": "^6.11.0",
     "react": "^17.0.2",
