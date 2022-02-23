@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Footer.css';
+import {Container, Grid, Box, Paper} from '@mui/material';
 
 const Footer = () => {
     return (
