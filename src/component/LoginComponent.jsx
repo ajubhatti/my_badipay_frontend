@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { authenticationService } from "../services/authentication.service";
 import './LoginRegisterComponent.css';
-import TextField from '@mui/material/TextField';
+import {TextField, Typography} from '@mui/material';
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");
@@ -26,7 +26,7 @@ const LoginComponent = () => {
         <div className="main-wrapper">
             {/* login wrapper  */}
             <div className="login-wrapper">  
-                <h4>To Login into your Badipay Web account</h4>
+            <Typography variant="h5" component="h5" align='center'>To Login into your Badipay Web account</Typography>
                 
                 <TextField
                     required

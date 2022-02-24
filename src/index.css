@@ -23,6 +23,9 @@ code {
   --mdb-secondary-rgb: 242, 106, 25;
   --mdb-body-font-size: 14px
 }
+.list-unstyled li{list-style: none;}
+.text-white{color: #fff;}
+img{max-width: 100%;}
 ul{margin-top: 0;padding-left: 0;}
 .text-end{text-align: right;}
 a, .btn-outline-primary{color: var(--mdb-primary-rgb);}

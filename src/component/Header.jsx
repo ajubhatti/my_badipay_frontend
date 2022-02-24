@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { styled } from '@mui/material/styles';
 import WalletModal from "../containers/Modals/WalletModal";
 import "./Header.css";
-import {Container, Grid, Box, Paper, AppBar, Toolbar, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem} from '@mui/material';
+import {Container, Grid, Box, Paper, AppBar, Toolbar, Badge, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem} from '@mui/material';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 const pages = ['Home', 'Services', 'Bussiness Opportunity', 'Download', 'Contact Us'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['My Profile', 'Wallet Request', 'Logout'];
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'light' ? '#1A2027' : '#fff',
@@ -91,8 +92,7 @@ const Header = () => {
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             <img src="assets/images/logo.jpg" />
-          </Typography>
-
+          </Typography>                   
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -101,8 +101,8 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-            >
-              menu
+            > Menu
+              {/* <MenuIcon /> */}
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -148,7 +148,20 @@ const Header = () => {
               </Button>
             ))}
           </Box>
-
+          <Box className="wallet" sx={{ flexGrow: 0 }}>
+            <img src="assets/images/wallet.png" />
+          </Box>
+          <MenuItem sx={{ flexGrow: 0 }}>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={17} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+          </MenuItem>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -170,30 +183,24 @@ const Header = () => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+            >              
+              <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
+              <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request</MenuItem>
+              <MenuItem>Logout</MenuItem>
             </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-      <nav className="navbar navbar-expand-lg">
-        {/* <!-- Container wrapper --> */}
+      {/* <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          {/* <!-- Collapsible wrapper --> */}
           <Grid container spacing={2}>
-            {/* <!-- Navbar brand --> */}
             <Grid item xs={3}>
               <a className="navbar-brand mt-2 mt-lg-0 logo" href="#">
                 <img src="assets/images/logo.jpg" className="img-fluid" />
               </a>
             </Grid>
             
-            {/* <!-- Left links --> */}
             <Grid item xs={9} display="flex" justifyContent="flex-end">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
@@ -224,17 +231,11 @@ const Header = () => {
               </ul>
             </Grid>
             
-            {/* <!-- Left links --> */}
           </Grid>
-          {/* <!-- Collapsible wrapper --> */}
-
-          {/* <!-- Right elements --> */}
           <div className="d-flex align-items-center">
-            {/* <!-- Icon --> */}
             <a className="wallet me-3" href="#">
               <img src="assets/images/wallet.png" className="img-fluid" />
             </a>
-            {/* <!-- Notifications --> */}
             <div className="dropdown">
               <a
                 className="text-reset me-3 dropdown-toggle hidden-arrow"
@@ -270,7 +271,6 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            {/* <!-- Avatar --> */}
             <div className="dropdown">
               <span
                 className="dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -309,10 +309,8 @@ const Header = () => {
               </ul>
             </div>
           </div>
-          {/* <!-- Right elements --> */}
         </div>
-        {/* <!-- Container wrapper --> */}
-      </nav>
+      </nav> */}
       <WalletModal
         openModal={openWalletModal}
         handleOpen={(data) => setOpenWalletModal(data)}
