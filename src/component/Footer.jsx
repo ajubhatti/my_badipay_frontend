@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Footer.css';
-import {Container, Grid, Item, Box, Paper} from '@mui/material';
+import {Container, Grid, Item, Box, Typography} from '@mui/material';
 
 
 const Footer = () => {
@@ -43,7 +43,7 @@ const Footer = () => {
                 </Grid>
             </Grid>
             </Container>
-            <div className='text-center p-3 border-top text-white'>Copyright &copy; {new Date().getFullYear()}{' '}, badipay.in, All rights reserved</div>
+            <Typography sx={{ p: 3 }} variant="p" component="p" align='center'>Copyright &copy; {new Date().getFullYear()}{' '}, badipay.in, All rights reserved.</Typography>
         </footer>
     )
 }

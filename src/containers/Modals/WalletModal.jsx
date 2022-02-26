@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import {TextField, Typography, Grid, Button} from '@mui/material';
 import Modal from "@mui/material/Modal";
 import { MenuItem, Select } from "@mui/material";
 
@@ -41,9 +40,9 @@ const WalletModal = (props) => {
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
+              <Typography sx={{ mb: 3 }} variant="h5" component="h5" align='center' id="exampleModalLabel">
                   Wallet Request
-                </h5>
+                </Typography>
                 <button
                   type="button"
                   className="btn-close"

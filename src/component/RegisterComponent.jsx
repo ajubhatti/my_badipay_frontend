@@ -4,6 +4,7 @@ import './LoginRegisterComponent.css';
 import { authenticationService } from "../services/authentication.service";
 import { accountService } from '../services/account.service';
 import { alertService } from "../services";
+import {TextField, Typography, Grid, Button} from '@mui/material';
 
 const RegisterComponent = () => {
     const [firstName,setFirstName] = useState(null);
@@ -54,33 +55,39 @@ const RegisterComponent = () => {
         <div className="main-wrapper">
             <div className="container-fluid register-wrap">
                 <div className="login-wrapper">
-                    <h4>Welcome into Badipay.in</h4>
-                    <div class="form-outline">
-                        <input type="text" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter First Name</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="text" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Last Name</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="text" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Email</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="text" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Phone Number</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="password" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Password</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="password" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Confirm Password</label>
-                    </div>                    
+                    <Typography sx={{ mb: 3 }} variant="h5" component="h5" align='center'>Welcome into Badipay.in</Typography>
+                    <TextField fullWidth sx={{ mb: 2 }}
+                        required size="small"
+                        id="outlined-required"
+                        label="Enter First Name"
+                    />
+                    <TextField fullWidth sx={{ mb: 2 }}
+                        required size="small"
+                        id="outlined-required"
+                        label="Enter Last Name"
+                    />
+                    <TextField fullWidth sx={{ mb: 2 }}
+                        required size="small"
+                        id="outlined-required"
+                        label="Enter Email"
+                    />
+                    <TextField fullWidth sx={{ mb: 2 }}
+                        required size="small"
+                        id="outlined-required"
+                        label="Enter Phone Number"
+                    />
+                    <TextField fullWidth sx={{ mb: 2 }}
+                        required size="small"
+                        id="outlined-required"
+                        label="Enter Password"
+                    />
+                    <TextField fullWidth sx={{ mb: 2 }}
+                        required size="small"
+                        id="outlined-required"
+                        label="Enter Confirm Password"
+                    />                   
                     <p className="text-end"><a href="#" className="font-weight-bold"><Link to="/login">Already have an Account?</Link></a></p>
-                    <button className="btn btn-primary btn-block">Login</button>
+                    <Button fullWidth variant="contained">Register</Button>
                 </div>
             </div>
             
