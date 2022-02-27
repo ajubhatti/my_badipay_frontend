@@ -3,7 +3,33 @@ import { Link } from 'react-router-dom';
 import { BehaviorSubject } from 'rxjs';
 import "./DashBoard.css";
 
+import { servicesService } from "../services/service.service";
+
 const DashBoard = () => {
+    const [servicesList, setServicesList] = useState([]);
+
+    // const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+    useEffect(() => {
+        getListOfServices();
+    }, []);
+
+    const getListOfServices = () => {
+        servicesService.getAll().then(res=>{
+            console.log("lst --",res)
+            setServicesList(res)
+        })
+    }
+
+    // const deleteTask = (id : any) => {
+        
+       
+    //     taskService.deleteTask(id).then(res=>{
+    //         var lst : any = taskList.filter((x : any) => x._id !== id);
+    //         console.log("delete task ---",lst)
+    //         setTaskList(lst);
+    //     });
+    // }
+
     return (
         <div>
             {/* <!-- Carousel wrapper --> */}

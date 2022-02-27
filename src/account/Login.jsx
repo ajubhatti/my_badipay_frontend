@@ -22,7 +22,7 @@ const Login = ({ history, location }) => {
         alertService.clear();
         accountService.login(email, password)
             .then(() => {
-                const { from } = location.state || { from: { pathname: "/" } };
+                const { from } = location.state || { from: { pathname: "/task" } };
                 history.push(from);
             })
             .catch(error => {

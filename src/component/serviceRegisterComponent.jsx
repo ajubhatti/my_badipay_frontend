@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import './LoginRegisterComponent.css';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import { authenticationService } from "../services/authentication.service";
 import { accountService } from '../services/account.service';
 import { alertService } from "../services";
 import { async } from "rxjs";
 
-const RegisterComponent = () => {
+const serviceRegisterComponent = () => {
     const [userName,setUserName] = useState(null);
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [email, setEmail] = useState("report.bt@mailinator.com");
@@ -51,40 +52,29 @@ const RegisterComponent = () => {
 
     return (
         <div className="main-wrapper">
-            <div className="container-fluid register-wrap">
-                <div className="login-wrapper">
-                    <h4>Welcome into Badipay.in</h4>
-                    <div class="form-outline">
-                        <input type="text" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter First Name</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="text" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Last Name</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="text" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Email</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="text" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Phone Number</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="password" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Password</label>
-                    </div>
-                    <div class="form-outline">
-                        <input type="password" id="form12" class="form-control" />
-                        <label class="form-label" for="form12">Enter Confirm Password</label>
-                    </div>                    
-                    <p className="text-end"><a href="#" className="font-weight-bold"><Link to="/login">Already have an Account?</Link></a></p>
-                    <button className="btn btn-primary btn-block">Login</button>
-                </div>
-            </div>
+            <MDBContainer fluid className="register-wrap">
+                <MDBRow>
+                    <MDBCol></MDBCol>
+                    <MDBCol>
+                        <div className="login-wrapper">
+                            <MDBTypography variant='h4' colorText="secondary" align='center' className="mb-4">Welcome into Badipay.in</MDBTypography>
+                            <MDBInput className="mb-3" label='Name' id='form1' type='text' autoComplete="name" onChange={(e)=>setUserName(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Email' id='form1' type='text' autoComplete="email" onChange={(e)=>setEmail(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Phone Number' id='form1' type='text' autoComplete="phone" onChange={(e)=>setPhoneNumber(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Referel Link' id='form1' type='text' autoComplete="referelLink" onChange={(e)=>setReferrelId(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Password' id='form1' type='password' autoComplete="password" onChange={(e)=>setPassword(e.target.value)}/>
+                            <MDBInput className="mb-3" label='Confirm Password' id='form1' type='password' autoComplete="confirmPassword" onChange={(e)=>setConfirmPassword(e.target.value)}/>
+                            <div className="d-grid gap-2">
+                                <MDBBtn onClick={handleRegister}>Register</MDBBtn>
+                                <MDBTypography tag='small' align='right'><Link to="/" className="font-weight-bold">Already have an Account?</Link></MDBTypography>
+                            </div>
+                        </div>
+                    </MDBCol>
+                </MDBRow>
+            </MDBContainer>
             
         </div>
     );
 }
 
-export default RegisterComponent;
+export default serviceRegisterComponent;
