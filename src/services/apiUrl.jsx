@@ -1,20 +1,22 @@
+const baseUrl = process.env.apiUrl;
+
 export const apiUrl = {
-    auth : {
-        login : 'http://localhost:4000/users/authenticate',
-        register : 'http://localhost:4000/users/register',
-        getAll : 'http://localhost:4000/users/authenticate',
-        update : 'http://localhost:4000/users'
+    auth: {
+        login: `${baseUrl}users/authenticate`,
+        register: `${baseUrl}users/register`,
+        getAll: `${baseUrl}users/authenticate`,
+        update: `${baseUrl}users`
     },
-    task : {
-        getAll : "http://localhost:4000/task/",
-        getById : "http://localhost:4000/task/",
-        getByUserId : "http://localhost:4000/task/dashboard",
-        update : "http://localhost:4000/task/",
-        delete: "http://localhost:4000/task/",
-        create : "http://localhost:4000/task/create"
+    task: {
+        getAll: `${baseUrl}task/`,
+        getById: `${baseUrl}task/`,
+        getByUserId: `${baseUrl}task/dashboard`,
+        update: `${baseUrl}task/`,
+        delete: `${baseUrl}task/`,
+        create: `${baseUrl}task/create`
     },
     account: {
-        register : 'http://localhost:4000/accounts/register',
-        authenticate : 'http://localhost:4000/accounts/authenticate'
+        register: `${baseUrl}accounts/register`,
+        authenticate: `${baseUrl}accounts/authenticate`
     }
 }

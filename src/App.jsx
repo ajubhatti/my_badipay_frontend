@@ -1,9 +1,10 @@
-import React,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // import logo from './logo.svg';
 // import './App.css';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+// import { withStyles } from '@material-ui/core/styles';
+import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
-import { BrowserRouter, Redirect, Route, Switch ,useLocation} from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
@@ -23,24 +24,24 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage';
 
 function App() {
   // const { pathname } = useLocation();
-    const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
 
-    useEffect(() => {
-        const subscription = accountService.user.subscribe((x) => setUser(x));
-        return subscription.unsubscribe;
-    }, []);
+  useEffect(() => {
+    const subscription = accountService.user.subscribe((x) => setUser(x));
+    return subscription.unsubscribe;
+  }, []);
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <BrowserRouter>
         <Switch>
-         
-          <Route exact path='/registers' component={ RegisterPage } />
-          <Route exact path='/task' component={ DashboardPage } />
-          <Route exact path='/task/add' component={ TaskAddPage } />
-          <Route path='/task/:slug' component ={TaskEditPage} />
-              
+
+          <Route exact path='/registers' component={RegisterPage} />
+          <Route exact path='/task' component={DashboardPage} />
+          <Route exact path='/task/add' component={TaskAddPage} />
+          <Route path='/task/:slug' component={TaskEditPage} />
+
           {/* <Route exact path="/account/login" component={Account} /> */}
           <Route path="/account/login" component={Login} />
 
@@ -61,7 +62,7 @@ function App() {
           <Redirect from="*" to="/login" />
         </Switch>
       </BrowserRouter>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

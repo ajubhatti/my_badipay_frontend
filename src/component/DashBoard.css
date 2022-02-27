@@ -190,36 +190,21 @@
 
   /* my css */
   ul.feature-list{padding: 0 50px;}
-  ul.feature-list li{padding: 15px;margin: 15px;cursor: pointer;display: flex;align-items: center;float: left;}
+  ul.feature-list li{margin: 10px 0;cursor: pointer;display: flex;align-items: center;background-color: #fff;padding: 20px;box-shadow: 0 10px 30px rgb(24 33 99 / 10%); border-radius: 3px;}
   ul.feature-list li > span{
-    background-color: var(--mdb-primary);
+    background-color: var(--mdb-light);
     width: 70px;
     height: 70px;
     display: inline-block;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 50%;
+    transition: all .3s;
+    margin-right: 15px;
   }
-  ul.feature-list li > span img{
+  ul.feature-list li:hover > span img{
     filter: invert(1);
   }
-  ul.feature-list li p{display: inline-block;margin-bottom: 0;padding: 7px;position: relative;z-index: 9;text-transform: capitalize; transition: all.3s;}
-  ul.feature-list li p::after{
-    content: '';
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 0;
-    transition: all .5s;
-    background-color: var(--mdb-primary);
-    border-radius: 0px 10px 10px 0px;
-    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%);
-  }
-  ul.feature-list li:hover p::after{width: 100%;}
-  ul.feature-list li:hover p{color: #fff;}
-  ul.feature-list.text-right li {
-     flex-direction: column;
-  }
-  ul.feature-list.text-right li p::after{border-radius: 10px 0px 0px 10px;left: auto;}
+  ul.feature-list li:hover span{background-color: var(--mdb-primary);}
+  ul.feature-list li p{margin-bottom: 0;}
+  ul.feature-list li > div{flex: 1;}
+  

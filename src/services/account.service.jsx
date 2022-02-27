@@ -3,11 +3,11 @@ import { fetchWrapper } from '../helpers/fetch-wrapper';
 import { history } from '../helpers/history';
 
 const userSubject = new BehaviorSubject(null);
-// const baseUrl = `${config.apiUrl}/accounts`;
+const baseUrl = `${process.env.BASE_URL}/accounts`;
 
-const baseUrl = `http://localhost:4000/accounts`;
+// const baseUrl = `http://localhost:4000/accounts`;
 
-console.log("base url ---",baseUrl)
+console.log("base url ---", baseUrl)
 
 export const accountService = {
     login,
@@ -24,7 +24,7 @@ export const accountService = {
     update,
     delete: _delete,
     user: userSubject.asObservable(),
-    get userValue () { return userSubject.value }
+    get userValue() { return userSubject.value }
 };
 
 function login(email, password) {
@@ -58,7 +58,7 @@ function refreshToken() {
 }
 
 function register(params) {
-    console.log("register url----------",`${baseUrl}/register`)
+    console.log("register url----------", `${baseUrl}/register`)
     return fetchWrapper.post(`${baseUrl}/register`, params);
 }
 
