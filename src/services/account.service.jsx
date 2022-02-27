@@ -3,11 +3,12 @@ import { fetchWrapper } from '../helpers/fetch-wrapper';
 import { history } from '../helpers/history';
 
 const userSubject = new BehaviorSubject(null);
-const baseUrl = `${process.env.BASE_URL}/accounts`;
+// const baseUrl = `${process.env.BASE_URL}/accounts`;
 
-// const baseUrl = `http://localhost:4000/accounts`;
 
-console.log("base url ---", baseUrl)
+const baseUrl = `http://192.168.123.240:4000/accounts`;
+
+console.log("account base url ---", process.env.BASE_URL)
 
 export const accountService = {
     login,
@@ -46,10 +47,10 @@ function logout() {
 }
 
 function refreshToken() {
-    console.log("refresh token ----",`${baseUrl}/refresh-token`)
+    console.log("refresh token ----", `${baseUrl}/refresh-token`)
     return fetchWrapper.post(`${baseUrl}/refresh-token`, {})
         .then(user => {
-            console.log("user ----",user)
+            console.log("user ----", user)
             // publish user to subscribers and start timer to refresh token
             userSubject.next(user);
             startRefreshTokenTimer();
