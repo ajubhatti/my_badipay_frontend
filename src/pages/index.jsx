@@ -6,7 +6,7 @@ import { accountService } from '@/_services';
 import { Login } from './Login';
 import { Register } from './Register';
 import { VerifyEmail } from './VerifyEmail';
-import { ForgotPassword } from './ForgotPassword';
+import { ForgotPassword } from './ForgotPasswordPage';
 import { ResetPassword } from './ResetPassword';
 
 function Page({ history, match }) {

@@ -6,13 +6,15 @@ import { accountService } from '../services/account.service';
 import { alertService } from "../services";
 import { async } from "rxjs";
 
+const baseUrl = `http://192.168.123.240:4000/accounts`;
+
 const RegisterComponent = () => {
-    const [userName,setUserName] = useState(null);
-    const [phoneNumber,setPhoneNumber] = useState(null);
+    const [userName, setUserName] = useState(null);
+    const [phoneNumber, setPhoneNumber] = useState(null);
     const [email, setEmail] = useState("report.bt@mailinator.com");
     const [password, setPassword] = useState("12345678");
-    const [confirmPassword,setConfirmPassword] = useState(null);
-    const [referrelId,setReferrelId] = useState(null);
+    const [confirmPassword, setConfirmPassword] = useState(null);
+    const [referrelId, setReferrelId] = useState(null);
     const [loading, setLoading] = useState(false);
 
     let history = useHistory();
@@ -21,24 +23,24 @@ const RegisterComponent = () => {
         setLoading(true);
         const initialValues = {
             userName: userName,
-            phoneNumber :  phoneNumber,
+            phoneNumber: phoneNumber,
             email: email,
-            referrelId:referrelId,
-            password: password,            
+            referrelId: referrelId,
+            password: password,
             confirmPassword: confirmPassword,
             acceptTerms: true
         };
-        console.log("initial value ---",initialValues)
+        console.log("initial value ---", initialValues)
         let registerUser = await accountService.register(initialValues)
-        console.log("registerUser----",registerUser)
-        const verifyUrl = `http://localhost:3000/account/verify-email?token=${registerUser.account.account.verificationToken}`;
+        console.log("registerUser----", registerUser)
+        const verifyUrl = `${baseUrl}/verify-email?token=${registerUser.account.account.verificationToken}`;
         history.push(verifyUrl);
-        console.log("link ----",verifyUrl)
+        console.log("link ----", verifyUrl)
         // authenticationService.register(initialValues).then(user => {
         //     console.log("user ---",user)
         //     setLoading(false);
         //     alertService.success('Registration successful, please check your email for verification instructions', { keepAfterRouteChange: true });
-        //     const verifyUrl = `http://localhost:3000/account/verify-email?token=${user.verificationToken}`;
+        //     const verifyUrl = `${baseUrl}/verify-email?token=${user.verificationToken}`;
         //     history.push(verifyUrl);
         // //   if(user){
         // //     history.push('/');
@@ -77,13 +79,12 @@ const RegisterComponent = () => {
                     <div class="form-outline">
                         <input type="password" id="form12" class="form-control" />
                         <label class="form-label" for="form12">Enter Confirm Password</label>
-                    </div>                    
+                    </div>
                     <p className="text-end"><a href="#" className="font-weight-bold"><Link to="/login">Already have an Account?</Link></a></p>
                     <button className="btn btn-primary btn-block">Login</button>
-                </div>
-            </div>
-            
-        </div>
+                </div >
+            </div >
+        </div >
     );
 }
 
