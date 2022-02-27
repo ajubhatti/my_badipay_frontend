@@ -35,6 +35,8 @@ function login(email, password) {
             userSubject.next(user);
             startRefreshTokenTimer();
             return user;
+        }).catch(err=>{
+            console.log(err)
         });
 }
 
@@ -55,6 +57,8 @@ function refreshToken() {
             userSubject.next(user);
             startRefreshTokenTimer();
             return user;
+        }).catch(err => {
+            console.log(err)
         });
 }
 

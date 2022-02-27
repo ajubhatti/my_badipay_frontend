@@ -14,10 +14,16 @@ const DashBoard = () => {
     }, []);
 
     const getListOfServices = () => {
-        servicesService.getAll().then(res => {
-            console.log("lst --", res)
-            setServicesList(res)
-        })
+        try {
+            servicesService.getAll().then(res => {
+                console.log("lst --", res)
+                setServicesList(res)
+            }).catch(err => {
+                console.log(err)
+            })
+        } catch (err) {
+            return err
+        }
     }
 
     // const deleteTask = (id : any) => {

@@ -23,6 +23,8 @@ const ForgotPassWordComponent = () => {
                     history.push('/task');
                 }
             }
+        }).catch(err => {
+            console.log(err)
         })
     };
 

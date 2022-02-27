@@ -6,6 +6,8 @@ import { accountService } from '../services/account.service';
 import { alertService } from "../services";
 import { async } from "rxjs";
 
+const baseUrl = `http://192.168.123.240:4000/accounts`;
+
 const RegisterComponent = () => {
     const [userName, setUserName] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState(null);
@@ -31,14 +33,14 @@ const RegisterComponent = () => {
         console.log("initial value ---", initialValues)
         let registerUser = await accountService.register(initialValues)
         console.log("registerUser----", registerUser)
-        const verifyUrl = `http://localhost:3000/account/verify-email?token=${registerUser.account.account.verificationToken}`;
+        const verifyUrl = `${baseUrl}/verify-email?token=${registerUser.account.account.verificationToken}`;
         history.push(verifyUrl);
         console.log("link ----", verifyUrl)
         // authenticationService.register(initialValues).then(user => {
         //     console.log("user ---",user)
         //     setLoading(false);
         //     alertService.success('Registration successful, please check your email for verification instructions', { keepAfterRouteChange: true });
-        //     const verifyUrl = `http://localhost:3000/account/verify-email?token=${user.verificationToken}`;
+        //     const verifyUrl = `${baseUrl}/verify-email?token=${user.verificationToken}`;
         //     history.push(verifyUrl);
         // //   if(user){
         // //     history.push('/');
