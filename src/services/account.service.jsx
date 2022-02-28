@@ -3,11 +3,12 @@ import { fetchWrapper } from '../helpers/fetch-wrapper';
 import { history } from '../helpers/history';
 
 const userSubject = new BehaviorSubject(null);
-// const baseUrl = `${config.apiUrl}/accounts`;
+// const baseUrl = `${process.env.BASE_URL}/accounts`;
 
-const baseUrl = `http://localhost:4000/accounts`;
 
-console.log("base url ---",baseUrl)
+const baseUrl = `http://192.168.123.240:4000/accounts`;
+
+console.log("account base url ---", process.env.BASE_URL)
 
 export const accountService = {
     login,
@@ -24,7 +25,7 @@ export const accountService = {
     update,
     delete: _delete,
     user: userSubject.asObservable(),
-    get userValue () { return userSubject.value }
+    get userValue() { return userSubject.value }
 };
 
 function login(email, password) {
@@ -34,6 +35,8 @@ function login(email, password) {
             userSubject.next(user);
             startRefreshTokenTimer();
             return user;
+        }).catch(err => {
+            console.log(err)
         });
 }
 
@@ -46,19 +49,21 @@ function logout() {
 }
 
 function refreshToken() {
-    console.log("refresh token ----",`${baseUrl}/refresh-token`)
+    console.log("refresh token ----", `${baseUrl}/refresh-token`)
     return fetchWrapper.post(`${baseUrl}/refresh-token`, {})
         .then(user => {
-            console.log("user ----",user)
+            console.log("user ----", user)
             // publish user to subscribers and start timer to refresh token
             userSubject.next(user);
             startRefreshTokenTimer();
             return user;
+        }).catch(err => {
+            console.log(err)
         });
 }
 
 function register(params) {
-    console.log("register url----------",`${baseUrl}/register`)
+    console.log("register url----------", `${baseUrl}/register`)
     return fetchWrapper.post(`${baseUrl}/register`, params);
 }
 

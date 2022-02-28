@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import './LoginRegisterComponent.css';
-import { MDBRow, MDBCol, MDBInput, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
+// import { MDBRow, MDBCol, MDBInput, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import { accountService } from "../services/account.service";
 import { alertService } from "../services";
 import { authenticationService } from "../services/authentication.service";
@@ -16,13 +16,15 @@ const ForgotPassWordComponent = () => {
         setLoading(true);
         // onSubmit(email,password);
         authenticationService.login(email, password).then(user => {
-            console.log("usr data ---",user)
-            if(user && user.id){
+            console.log("usr data ---", user)
+            if (user && user.id) {
                 setLoading(false);
-                if(user){
-                  history.push('/task');
-                }     
-            }     
+                if (user) {
+                    history.push('/task');
+                }
+            }
+        }).catch(err => {
+            console.log(err)
         })
     };
 
@@ -41,13 +43,13 @@ const ForgotPassWordComponent = () => {
 
     return (
         <div className="main-wrapper">
-            <div className="login-wrapper">  
-                <MDBTypography variant='h4' align='center' colorText="secondary" className="mb-4">Forgot Password</MDBTypography>
+            <div className="login-wrapper">
+                {/* <MDBTypography variant='h4' align='center' colorText="secondary" className="mb-4">Forgot Password</MDBTypography>
                 <MDBInput className="mb-3" label='Enter Email' id='form1' type='text' {...email} onChange={(e)=>setEmail(e.target.value)} autoComplete="new-password" />
                 <div className="d-grid gap-2">
                     <Link className="d-block" to='/task'><MDBBtn className="w-100" onClick={handlelogin}>Submit</MDBBtn></Link>
                     <Link className="d-block" to='/registers'><MDBBtn className="w-100" outline to='/registers'>Cancel</MDBBtn></Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );
