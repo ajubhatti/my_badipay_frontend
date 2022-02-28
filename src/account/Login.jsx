@@ -23,7 +23,7 @@ const Login = ({ history, location }) => {
         accountService.login(email, password)
             .then(() => {
                 const { from } = location.state || { from: { pathname: "/task" } };
-                history.push('/task');
+                history.push(from);
             })
             .catch(error => {
                 setSubmitting(false);

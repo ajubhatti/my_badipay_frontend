@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BehaviorSubject } from 'rxjs';
+import { Container, Grid, Item, Box, Typography, Tab } from '@mui/material';
 import "./DashBoard.css";
 
 import { servicesService } from "../services/service.service";
@@ -14,15 +15,21 @@ const DashBoard = () => {
     }, []);
 
     const getListOfServices = () => {
-        servicesService.getAll().then(res=>{
-            console.log("lst --",res)
-            setServicesList(res)
-        })
+        try {
+            servicesService.getAll().then(res => {
+                console.log("lst --", res)
+                setServicesList(res)
+            }).catch(err => {
+                console.log(err)
+            })
+        } catch (err) {
+            return err
+        }
     }
 
     // const deleteTask = (id : any) => {
-        
-       
+
+
     //     taskService.deleteTask(id).then(res=>{
     //         var lst : any = taskList.filter((x : any) => x._id !== id);
     //         console.log("delete task ---",lst)
@@ -32,118 +39,78 @@ const DashBoard = () => {
 
     return (
         <div>
-            <div className='container-fluid'>
-                <div className='row'>
-                    <div className='col-12 p-0'>
-                    <h3 className='text-center py-5 mb-0 w-75 mx-auto'>Recharge &amp; pay bills, book flights &amp; movie tickets, open a savings account, invest in stocks &amp; mutual funds, and do a lot more.</h3>
-                        <img src='./assets/images/10107.jpg' className='img-fluid' />
-                    </div>
-                </div>
-            </div>
-            <div className='container'>
-                <marquee width="100%" direction="right">
-                This is a sample scrolling text that has scrolls texts to right.
-                <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
-                </marquee>
-            </div>            
-            <div className='bg-light'>
-                <div className='container-xl'>
-                    <div className='row py-5'>
-                        <div className='col-md-12 text-right'>
-                            <ul className='list-unstyled feature-list text-right'>
-                                { 
-                                    servicesList.map((service) => { 
-                                        return (
-                                            <li>
-                                                <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
-                                                <p>{ service.serviceName}</p>
-                                            </li>
-                                        )
-                                    })
-                                }
-                                
-                                {/* <li>
+            <div className='section-space bg-light'>
+                <Typography variant="h5" fullWidth component="h5" align='center' className='subtitle'>what we do</Typography>
+                <Typography variant="h3" sx={{ mb: 3 }} fullWidth component="h3" align='center' className='section-title'>Simple, fast and Hassle Free payments</Typography>
+                <Container maxWidth="xl">
+                    <Grid container spacing={2}>
+                        <Grid item lg={6} md={12}>
+                            <ul className='list-unstyled feature-list'>
+                                <li>
+                                    <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
+                                    <div>
+                                        <h4>Service title</h4>
+                                        <p>Recharge Prepaid Mobile</p>
+                                    </div>
+                                </li>
+                                <li>
                                     <span><img src='./assets/images/home.png' className='img-fluid' /></span>
-                                    <p>Pay rent payment</p>
+                                    <div>
+                                        <h4>Service title</h4>
+                                        <p>Pay rent payment</p>
+                                    </div>
                                 </li>
                                 <li>
                                     <span><img src='./assets/images/idea.png' className='img-fluid' /></span>
-                                    <p>pay electricity bill</p>
+                                    <div>
+                                        <h4>Service title</h4>
+                                        <p>pay electricity bill</p>
+                                    </div>
                                 </li>
                                 <li>
                                     <span><img src='./assets/images/satellite.png' className='img-fluid' /></span>
-                                    <p>Recharge DTH connection</p>
-                                </li> */}
+                                    <div>
+                                        <h4>Service title</h4>
+                                        <p>Recharge DTH connection</p>
+                                    </div>
+                                </li>
                             </ul>
-                        </div>
-                        {/* <div className='col-md-6'>
+                        </Grid>
+                        <Grid item lg={6} md={12}>
                             <ul className='list-unstyled feature-list'>
                                 <li>
                                     <span><img src='./assets/images/gas-cylinder.png' className='img-fluid' /></span>
-                                    <p>book gas cylinder</p>
+                                    <div>
+                                        <h4>Service title</h4>
+                                        <p>book gas cylinder</p>
+                                    </div>
                                 </li>
                                 <li>
                                     <span><img src='./assets/images/credit-cards.png' className='img-fluid' /></span>
-                                    <p>pay credit card bill</p>
+                                    <div>
+                                        <h4>Service title</h4>
+                                        <p>pay credit card bill</p>
+                                    </div>
                                 </li>
                                 <li>
                                     <span><img src='./assets/images/flight.png' className='img-fluid' /></span>
-                                    <p>book flight tickets</p>
+                                    <div>
+                                        <h4>Service title</h4>
+                                        <p>book flight tickets</p>
+                                    </div>
                                 </li>
                                 <li>
                                     <span><img src='./assets/images/investing.png' className='img-fluid' /></span>
-                                    <p>invest in stock</p>
+                                    <div>
+                                        <h4>Service title</h4>
+                                        <p>invest in stock</p>
+                                    </div>
                                 </li>
                             </ul>
-                        </div> */}
-                    </div>
-                </div>
+                        </Grid>
+                    </Grid>
+                </Container>
             </div>
-            {/* <h1>To Do List</h1>
-            <Link 
-                to={`/task/add`} 
-                className="btn btn-sm btn-success mb-2">Add Task
-            </Link>
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th style={{ width: '30%' }}>description</th>
-                        <th style={{ width: '10%' }}></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {taskList && taskList.map((list : any) =>
-                        <tr key={list.id}>                            
-                            <td>{list.description}</td>                            
-                            <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={`edit/${list._id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
-                                <button 
-                                onClick={() => deleteTask(list._id)} 
-                                className="btn btn-sm btn-danger btn-delete-user" disabled={list.isDeleting}>
-                                    {list.isDeleting 
-                                        ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
-                                    }
-                                </button>
-                            </td>
-                        </tr>
-                    )}
-                    {!taskList &&
-                        <tr>
-                            <td className="text-center">
-                                <div className="spinner-border spinner-border-lg align-center"></div>
-                            </td>
-                        </tr>
-                    }
-                    {taskList && !taskList.length &&
-                        <tr>
-                            <td className="text-center">
-                                <div className="p-2">No Task To Display</div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table> */}
         </div>
     );
 }

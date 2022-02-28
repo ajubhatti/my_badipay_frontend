@@ -1,6 +1,8 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     font-size: var(--mdb-body-font-size);
@@ -20,12 +22,71 @@ code {
   --mdb-secondary-rgb: 242, 106, 25;
   --mdb-body-font-size: 14px
 }
+.list-unstyled li{list-style: none;}
+.text-white{color: #fff;}
+img{max-width: 100%;}
+ul{margin-top: 0;padding-left: 20px;}
+p{margin-top:0;}
+a{text-decoration: none;}
+.text-end{text-align: right;}
 a, .btn-outline-primary{color: var(--mdb-primary-rgb);}
 .btn-outline-primary{border-color: var(--mdb-primary-rgb);}
-
+.btn-secondary{background-color: var(--mdb-secondary);}
+.btn-secondary:hover{background-color: var(--mdb-primary);}
 .btn-primary:hover{background-color: rgba(var(--mdb-secondary-rgb), var(--mdb-bg-opacity)) !important;}
 .btn-outline-primary:hover{border-color: var(--mdb-secondary);color: var(--mdb-secondary);}
 .bg-primary, .btn-primary {
   --mdb-bg-opacity: 1;
   background-color: rgba(var(--mdb-primary-rgb), var(--mdb-bg-opacity)) !important;
+}
+.carousel-control-next-icon:after, .carousel-control-prev-icon:after{font-family: 'FontAwesome';}
+.carousel-control-prev-icon:after{content: "\f104";}
+.carousel-control-next-icon:after{content: "\f105";}
+.form-outline, .form-control {
+  position: relative;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.form-control{font-size: 14px;}
+.form-label{margin-bottom: 5px;display: inline-block;}
+.form-outline .form-control~.form-label{padding-top: 0.5rem;background: #fff;}
+.subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-size: 42px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: var(--mdb-primary);
+}
+.section-space{
+  padding: 70px 0;
+}
+
+/* recharge tab css */
+.recharge-tab{
+  margin-top: -46px;
+  position: relative;
+  z-index: 9;
+  background: #fff;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/* home banner css  */
+.home-banner .carousel-item{position: relative;}
+.home-banner .carousel-item::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--mdb-primary);
+  opacity: 0.7;
 }
