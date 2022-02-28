@@ -3,7 +3,7 @@ import { fetchWrapper } from '../helpers/fetch-wrapper';
 import { history } from '../helpers/history';
 
 const userSubject = new BehaviorSubject(null);
-// const baseUrl = `${config.apiUrl}/service`;
+// const baseUrl = `${process.env.BASE_URL}/service`;
 
 const baseUrl = `http://192.168.123.240:4000/service`;
 
@@ -16,6 +16,7 @@ export const servicesService = {
     create,
     update,
     delete: _delete,
+    deleteTask
 };
 
 function _delete(id) {
@@ -86,19 +87,14 @@ function deleteTask(params) {
 }
 
 function getAll() {
-    try {
-        const requestOptions = {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
-        };
-        const url = baseUrl;
-        return fetch(url, requestOptions)
-            .then(res => res.json())
-            .then(data => {
-                return data;
-            });
-    } catch (err) {
-        return err
-    }
-
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    const url = baseUrl;
+    return fetch(url, requestOptions)
+        .then(res => res.json())
+        .then(data => {
+            return data;
+        });
 }

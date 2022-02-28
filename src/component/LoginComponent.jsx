@@ -5,6 +5,7 @@ import { TextField, Typography } from '@mui/material';
 import { accountService } from "../services/account.service";
 import { alertService } from "../services";
 import { authenticationService } from "../services/authentication.service";
+import { Grid, Button } from '@mui/material';
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");
@@ -53,28 +54,28 @@ const LoginComponent = () => {
         <div className="main-wrapper">
             {/* login wrapper  */}
             <div className="login-wrapper">
-                <Typography variant="h5" component="h5" align='center'>To Login into your Badipay Web account</Typography>
+                <Typography sx={{ mb: 3 }} variant="h5" component="h5" align='center'>To Login into your Badipay Web account</Typography>
 
-                <TextField
-                    required
+                <TextField fullWidth sx={{ mb: 2 }}
+                    required size="small"
                     id="outlined-required"
                     label="Enter Email"
                 />
-                <TextField
+                <TextField fullWidth sx={{ mb: 2 }}
                     id="outlined-password-input"
                     label="Password"
-                    type="password"
+                    type="password" size="small"
                     autoComplete="current-password"
                 />
                 <p className="text-end"><a className="small text-primary font-weight-bold" href="#">Forgot Password?</a></p>
-                <div className="row">
-                    <div className="col-6">
-                        <button className="btn btn-secondary btn-block"><Link to="/registers">Register</Link></button>
-                    </div>
-                    <div className="col-6">
-                        <button className="btn btn-primary btn-block">Login</button>
-                    </div>
-                </div>
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <Button fullWidth variant="contained" color="secondary"><Link to="/registers">Register</Link></Button>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Button fullWidth variant="contained">Login</Button>
+                    </Grid>
+                </Grid>
             </div>
             {/* login wrapper end */}
         </div>

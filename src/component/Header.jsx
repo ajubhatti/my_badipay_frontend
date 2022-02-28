@@ -4,11 +4,12 @@ import WalletModal from "../containers/Modals/WalletModal";
 import "./Header.css";
 import {Container, Grid, Box, Paper, AppBar, Toolbar, Badge, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem} from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import MenuIcon from '@mui/icons-material/Menu';
 const pages = ['Home', 'Services', 'Bussiness Opportunity', 'Download', 'Contact Us'];
 const settings = ['My Profile', 'Wallet Request', 'Logout'];
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'light' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   boxShadow: 'none',
@@ -39,7 +40,7 @@ const Header = () => {
   return (
     <div className="header">
       <Grid container spacing={2} className='bg-primary top-row'>
-        <Grid item xs={6}>
+        <Grid item md={6}>
           <Item color='white'>
             <ul>
               <li>
@@ -55,7 +56,7 @@ const Header = () => {
             </ul>
           </Item>
         </Grid>
-        <Grid item xs={6} display="flex" justifyContent="flex-end">
+        <Grid item md={6} display="flex" justifyContent="flex-end">
           <Item>
             <ul>
               <li>
@@ -82,7 +83,7 @@ const Header = () => {
           </Item>
         </Grid>
       </Grid>
-      <AppBar position="static" backgroundColor="#fff">
+      <AppBar position="static"  sx={{ bgcolor: "white" }} elevation={2}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography className="logo"
@@ -101,8 +102,8 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-            > Menu
-              {/* <MenuIcon /> */}
+            >
+             <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -158,7 +159,7 @@ const Header = () => {
               color="inherit"
             >
               <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+                <NotificationsIcon color="primary" />
               </Badge>
             </IconButton>
           </MenuItem>
