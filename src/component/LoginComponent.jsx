@@ -2,7 +2,10 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { authenticationService } from "../services/authentication.service";
 import './LoginRegisterComponent.css';
-import {TextField, Typography, Grid, Button} from '@mui/material';
+import {TextField, Typography} from '@mui/material';
+import { accountService } from "../services/account.service";
+import { alertService } from "../services";
+import {Grid, Button} from '@mui/material';
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");
@@ -21,6 +24,29 @@ const LoginComponent = () => {
             }     
         })
     };
+
+    const onSubmit = ({ email, password }) => {
+        
+        alertService.clear();
+        if (!email) { 
+
+        }
+        if (!password) { 
+
+        }
+        if (email && password) { 
+            accountService.login(email, password)
+            .then(() => {
+                // const { from } = location.state || { from: { pathname: "/" } };
+                history.push('/');
+            })
+            .catch(error => {
+                // setSubmitting(false);
+                alertService.error(error);
+            });
+        }
+        
+    }
 
     return (
         <div className="main-wrapper">

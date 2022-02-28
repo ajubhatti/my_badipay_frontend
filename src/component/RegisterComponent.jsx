@@ -4,51 +4,50 @@ import './LoginRegisterComponent.css';
 import { authenticationService } from "../services/authentication.service";
 import { accountService } from '../services/account.service';
 import { alertService } from "../services";
-import {TextField, Typography, Grid, Button} from '@mui/material';
+import { async } from "rxjs";
+import {Typography, TextField, Button} from '@mui/material';
 
 const RegisterComponent = () => {
-    const [firstName,setFirstName] = useState(null);
-    const [lastName,setLastName] = useState(null);
+    const [userName,setUserName] = useState(null);
     const [phoneNumber,setPhoneNumber] = useState(null);
     const [email, setEmail] = useState("report.bt@mailinator.com");
     const [password, setPassword] = useState("12345678");
+    const [confirmPassword,setConfirmPassword] = useState(null);
+    const [referrelId,setReferrelId] = useState(null);
     const [loading, setLoading] = useState(false);
+
     let history = useHistory();
 
-    const handlelogin = () => {
-        var userData = {
-            "firstname" : firstName,
-            "lastname" : lastName,
-            "email" : email,
-            "phoneNumber" : phoneNumber,
-            "password" :password
-        }
+    const handleRegister = async () => {
         setLoading(true);
-
         const initialValues = {
-            title: 'Mr',
-            firstName: firstName,
-            lastName: lastName,
+            userName: userName,
+            phoneNumber :  phoneNumber,
             email: email,
-            password: password,
-            confirmPassword: password,
+            referrelId:referrelId,
+            password: password,            
+            confirmPassword: confirmPassword,
             acceptTerms: true
         };
-
-        // accountService.register(initialValues)
         console.log("initial value ---",initialValues)
-        authenticationService.register(initialValues).then(user => {
-            console.log("user ---",user)
-          setLoading(false);
-          alertService.success('Registration successful, please check your email for verification instructions', { keepAfterRouteChange: true });
-          history.push('login');
-        //   if(user){
-        //     history.push('/');
-        //   }          
-      }).catch(error => {
-        // setSubmitting(false);
-        alertService.error(error);
-    })
+        let registerUser = await accountService.register(initialValues)
+        console.log("registerUser----",registerUser)
+        const verifyUrl = `http://localhost:3000/account/verify-email?token=${registerUser.account.account.verificationToken}`;
+        history.push(verifyUrl);
+        console.log("link ----",verifyUrl)
+        // authenticationService.register(initialValues).then(user => {
+        //     console.log("user ---",user)
+        //     setLoading(false);
+        //     alertService.success('Registration successful, please check your email for verification instructions', { keepAfterRouteChange: true });
+        //     const verifyUrl = `http://localhost:3000/account/verify-email?token=${user.verificationToken}`;
+        //     history.push(verifyUrl);
+        // //   if(user){
+        // //     history.push('/');
+        // //   }          
+        // }).catch(error => {
+        //     // setSubmitting(false);
+        //     alertService.error(error);
+        // })
     };
 
     return (

@@ -4,7 +4,7 @@ import queryString from 'query-string';
 import { accountService } from '../services/account.service';
 import { alertService } from '../services';
 
-function VerifyEmail({ history,location }) {
+function VerifyEmail({ history,location}) {
     const EmailStatus = {
         Verifying: 'Verifying',
         Failed: 'Failed'
@@ -13,15 +13,16 @@ function VerifyEmail({ history,location }) {
     const [emailStatus, setEmailStatus] = useState(EmailStatus.Verifying);
 
     useEffect(() => {
-        const { token } = queryString.parse(location.search);
-
+        console.log("location-----",window.location)
+        const { token } = queryString.parse(window.location.search);
+        console.log("token -----------",token,location.search)
         // remove token from url to prevent http referer leakage
         history.replace(location.pathname);
 
         accountService.verifyEmail(token)
             .then(() => {
                 alertService.success('Verification successful, you can now login', { keepAfterRouteChange: true });
-                history.push('login');
+                history.push('/login');
             })
             .catch(() => {
                 setEmailStatus(EmailStatus.Failed);

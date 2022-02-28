@@ -1,10 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BehaviorSubject } from 'rxjs';
 import {Container, Grid, Item, Box, Typography, Tab} from '@mui/material';
 import "./DashBoard.css";
 
+import { servicesService } from "../services/service.service";
+
 const DashBoard = () => {
+    const [servicesList, setServicesList] = useState([]);
+
+    // const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+    useEffect(() => {
+        getListOfServices();
+    }, []);
+
+    const getListOfServices = () => {
+        servicesService.getAll().then(res=>{
+            console.log("lst --",res)
+            setServicesList(res)
+        })
+    }
+
+    // const deleteTask = (id : any) => {
+        
+       
+    //     taskService.deleteTask(id).then(res=>{
+    //         var lst : any = taskList.filter((x : any) => x._id !== id);
+    //         console.log("delete task ---",lst)
+    //         setTaskList(lst);
+    //     });
+    // }
+
     return (
         <div>    
             <div className='section-space bg-light'>

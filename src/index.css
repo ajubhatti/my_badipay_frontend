@@ -50,6 +50,7 @@ a, .btn-outline-primary{color: var(--mdb-primary-rgb);}
   margin-bottom: 20px;
 }
 .form-control{font-size: 14px;}
+.form-label{margin-bottom: 5px;display: inline-block;}
 .form-outline .form-control~.form-label{padding-top: 0.5rem;background: #fff;}
 .subtitle {
   font-size: 14px;
