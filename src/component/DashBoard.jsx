@@ -4,7 +4,11 @@ import { BehaviorSubject } from 'rxjs';
 import { Container, Grid, Item, Box, Typography, Tab } from '@mui/material';
 import "./DashBoard.css";
 
+
 import { servicesService } from "../services/service.service";
+import FullWidthTabs from './TabPanel';
+import SliderAwesome from './SliderAwesome';
+import SliderReactSlideShow from './SliderReactSlideShow';
 
 const DashBoard = () => {
     const [servicesList, setServicesList] = useState([]);
@@ -39,6 +43,9 @@ const DashBoard = () => {
 
     return (
         <div>
+            <FullWidthTabs />
+            <SliderAwesome />
+            <SliderReactSlideShow />
             <div className='section-space bg-light'>
                 <Typography variant="h5" fullWidth component="h5" align='center' className='subtitle'>what we do</Typography>
                 <Typography variant="h3" sx={{ mb: 3 }} fullWidth component="h3" align='center' className='section-title'>Simple, fast and Hassle Free payments</Typography>
