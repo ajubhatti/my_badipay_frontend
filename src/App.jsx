@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // import { withStyles } from '@material-ui/core/styles';
 import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
-import { BrowserRouter, Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Router, Switch, useLocation } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
@@ -21,6 +21,7 @@ import { ResetPassword } from './account/ResetPassword';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import Header from './containers/Header';
 import Footer from './containers/Footer';
+import UserProfile from './pages/UserProfile';
 
 function App() {
   // const { pathname } = useLocation();
@@ -41,6 +42,8 @@ function App() {
           <Route exact path='/task' component={DashboardPage} />
           <Route exact path='/task/add' component={TaskAddPage} />
           <Route path='/task/:slug' component={TaskEditPage} />
+
+          <Route path='/myProfile' component={UserProfile} />
 
           {/* <Route exact path="/account/login" component={Account} /> */}
           <Route path="/account/login" component={Login} />

@@ -5,6 +5,7 @@ import { Container, Grid, Box, Paper, AppBar, Toolbar, Badge, IconButton, Typogr
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuIcon from '@mui/icons-material/Menu';
 import WalletModal from "../component/Modals/WalletModal";
+import { useHistory } from "react-router-dom";
 const pages = ['Home', 'Services', 'Bussiness Opportunity', 'Download', 'Contact Us'];
 const settings = ['My Profile', 'Wallet Request', 'Logout'];
 
@@ -18,6 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Header = () => {
+  const history = useHistory();
   const [showBasic, setShowBasic] = useState(false);
   const [openWalletModal, setOpenWalletModal] = useState(false);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,6 +39,11 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const goToMyProfile = () => {
+    handleCloseUserMenu()
+    history.push('/myProfile')
+  }
   return (
     <div className="header">
       <Grid container spacing={2} className='bg-primary top-row'>
@@ -152,7 +159,10 @@ const Header = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
+                <MenuItem onClick={() => {
+
+                  goToMyProfile()
+                }}>My Profile</MenuItem>
                 <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request</MenuItem>
                 <MenuItem>Logout</MenuItem>
               </Menu>
