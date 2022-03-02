@@ -1,8 +1,8 @@
-import ForgotPassWordComponent from "../component/ResetPasswordComponent";
+import ForgotPassWordComponent from "../containers/ForgotPassWordComponent";
 
 const ResetPasswordPage = () => {
-    return(
-        <ForgotPassWordComponent />    
+    return (
+        <ForgotPassWordComponent />
     )
 };
 

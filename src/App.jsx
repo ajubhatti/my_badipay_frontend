@@ -10,8 +10,6 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import TaskAddPage from './pages/TaskAddPage';
 import TaskEditPage from './pages/TaskEditPage';
-import Header from './component/Header';
-import Footer from './component/Footer';
 import PrivateRoute from './component/PrivateRoute';
 import { accountService } from './services/account.service';
 import { Role } from './helpers/role';
@@ -21,6 +19,8 @@ import { VerifyEmail } from './account/VerifyEmail';
 import { ForgotPassword } from './account/ForgotPassword';
 import { ResetPassword } from './account/ResetPassword';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import Header from './containers/Header';
+import Footer from './containers/Footer';
 
 function App() {
   // const { pathname } = useLocation();

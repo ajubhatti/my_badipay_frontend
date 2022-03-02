@@ -1,7 +1,8 @@
-import DashBoard from "../component/DashBoard";
+import DashBoard from "../containers/DashBoard";
+
 
 const DashboardPage = () => {
-    return(
+    return (
         <DashBoard />
     )
 }

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { styled } from '@mui/material/styles';
-import WalletModal from "../containers/Modals/WalletModal";
 import "./Header.css";
 import { Container, Grid, Box, Paper, AppBar, Toolbar, Badge, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuIcon from '@mui/icons-material/Menu';
+import WalletModal from "../component/Modals/WalletModal";
 const pages = ['Home', 'Services', 'Bussiness Opportunity', 'Download', 'Contact Us'];
 const settings = ['My Profile', 'Wallet Request', 'Logout'];
 

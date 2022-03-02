@@ -6,9 +6,9 @@ import "./DashBoard.css";
 
 
 import { servicesService } from "../services/service.service";
-import FullWidthTabs from './TabPanel';
-import SliderAwesome from './SliderAwesome';
-import SliderReactSlideShow from './SliderReactSlideShow';
+import SliderAwesome from '../component/SliderAwesome';
+import FullWidthTabs from '../component/TabPanel';
+import SliderReactSlideShow from '../component/SliderReactSlideShow';
 
 const DashBoard = () => {
     const [servicesList, setServicesList] = useState([]);
