@@ -42,16 +42,16 @@ const DashBoard = () => {
     // }
 
     return (
-        <div>
-            <FullWidthTabs />
+        <div>            
             <SliderAwesome />
-            <SliderReactSlideShow />
+            {/* <SliderReactSlideShow /> */}
+            <FullWidthTabs />
             <div className='section-space bg-light'>
                 <Typography variant="h5" fullWidth component="h5" align='center' className='subtitle'>what we do</Typography>
                 <Typography variant="h3" sx={{ mb: 3 }} fullWidth component="h3" align='center' className='section-title'>Simple, fast and Hassle Free payments</Typography>
                 <Container maxWidth="xl">
                     <Grid container spacing={2}>
-                        <Grid item lg={6} md={12}>
+                        <Grid item lg={3} md={6} xs={12}>
                             <ul className='list-unstyled feature-list'>
                                 <li>
                                     <span><img src='./assets/images/smartphone.png' className='img-fluid' /></span>
@@ -67,6 +67,10 @@ const DashBoard = () => {
                                         <p>Pay rent payment</p>
                                     </div>
                                 </li>
+                            </ul>
+                        </Grid>
+                        <Grid item lg={3} md={6} xs={12}>
+                            <ul className='list-unstyled feature-list'>
                                 <li>
                                     <span><img src='./assets/images/idea.png' className='img-fluid' /></span>
                                     <div>
@@ -83,7 +87,7 @@ const DashBoard = () => {
                                 </li>
                             </ul>
                         </Grid>
-                        <Grid item lg={6} md={12}>
+                        <Grid item lg={3} md={6} xs={12}>
                             <ul className='list-unstyled feature-list'>
                                 <li>
                                     <span><img src='./assets/images/gas-cylinder.png' className='img-fluid' /></span>
@@ -99,6 +103,10 @@ const DashBoard = () => {
                                         <p>pay credit card bill</p>
                                     </div>
                                 </li>
+                            </ul>
+                        </Grid>
+                        <Grid item lg={3} md={6} xs={12}>
+                            <ul className='list-unstyled feature-list'>
                                 <li>
                                     <span><img src='./assets/images/flight.png' className='img-fluid' /></span>
                                     <div>

@@ -4,11 +4,19 @@ import 'react-awesome-slider/dist/styles.css';
 
 const SliderAwesome = () => {
   return (
-    <AwesomeSlider>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
+    <AwesomeSlider className='home-slider'>
+      <div>
+        <img src="assets/images/10107.jpg" />
+      </div>
+      <div>
+        <img src="assets/images/rcpanel.com.jpeg" />
+      </div>
+      <div>
+        <img src="assets/images/10107.jpg" />
+      </div>
+      <div>
+        <img src="assets/images/rcpanel.com.jpeg" />
+      </div>
     </AwesomeSlider>
   )
 }
