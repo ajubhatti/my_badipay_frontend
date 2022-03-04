@@ -5,7 +5,7 @@ body {
   font-family: 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    font-size: var(--mdb-body-font-size);
+    font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,15 +17,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.mb-0{margin-bottom: 0;}
 .bg-primary{background-color: var(--primary);;}
 .list-unstyled li{list-style: none;}
 .text-white{color: #fff;}
 img{max-width: 100%;}
-ul{margin-top: 0;padding-left: 20px;}
+ul{margin-top: 0;padding-left: 15px;}
 p{margin-top:0;}
 a{text-decoration: none;}
 .text-end{text-align: right;}
-
+button a{color: inherit;}
 .home-slider .awssld__bullets{display: none;}
 
 .subtitle {
@@ -51,4 +52,3 @@ a{text-decoration: none;}
   position: relative;
   z-index: 9;
 }
-.footer-link li a{color: inherit;}

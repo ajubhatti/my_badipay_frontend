@@ -186,8 +186,32 @@ const Header = () => {
                 </Button>
               ))}
             </Box>
-            <Box className="wallet" sx={{ flexGrow: 0 }}>
-              <img src="assets/images/wallet.png" />
+            <Box sx={{ flexGrow: 0 }} className='wallet'>
+              <Tooltip title="Open wallet">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <img src="assets/images/wallet.png" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
+                <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request</MenuItem>
+                <MenuItem>Logout</MenuItem>
+              </Menu>
             </Box>
             <MenuItem sx={{ flexGrow: 0 }}>
               <IconButton

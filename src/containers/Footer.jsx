@@ -15,6 +15,7 @@ const Footer = () => {
                     <p className='text-white'>Wanted distributors and retailers all over india. Hi speed recharge system with high margin, please contact us to start this business</p>
                 </Grid>
                 <Grid item lg={3} md={6}>
+                    <h3 className='footer-title'>Features</h3>
                     <ul className='text-white px-3 mb-0'>
                         <li>All Mobile/DTH Operators available</li>
                         <li>Instant recharge</li>
@@ -24,6 +25,7 @@ const Footer = () => {
                     </ul>
                 </Grid>
                 <Grid item lg={3} md={6}>
+                <h3 className='footer-title'>Features</h3>
                     <ul className='text-white px-3 mb-0'>
                         <li>Recharge any Mobile Phone</li>
                         <li>Top-Up All DTH Services</li>
@@ -33,7 +35,8 @@ const Footer = () => {
                     </ul>
                 </Grid>
                 <Grid item lg={3} md={6}>
-                    <ul className='text-white p-0 mb-0 list-unstyled footer-link'>
+                <h3 className='footer-title'>Supporting Link</h3>
+                    <ul className='text-white list-unstyled footer-link'>
                         <li><a href="#">contact us</a></li>
                         <li><a href="#">about us</a></li>
                         <li><a href="#">payment</a></li>
@@ -43,7 +46,7 @@ const Footer = () => {
                 </Grid>
             </Grid>
             </Container>
-            <Typography sx={{ p: 3 }} variant="p" component="p" align='center'>Copyright &copy; {new Date().getFullYear()}{' '}, badipay.in, All rights reserved.</Typography>
+            <Typography className='copyright-text' variant="p" component="p" align='center'>Copyright &copy; {new Date().getFullYear()}{' '}, <a href="">badipay.in</a>, All rights reserved.</Typography>
         </footer>
     )
 }
