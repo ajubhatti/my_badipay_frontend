@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import "./Header.css";
 import { Container, Grid, Box, Paper, AppBar, Toolbar, Badge, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuIcon from '@mui/icons-material/Menu';
 import WalletModal from "../component/Modals/WalletModal";
-import { useHistory } from "react-router-dom";
 const pages = ['Home', 'Services', 'Bussiness Opportunity', 'Download', 'Contact Us'];
 const settings = ['My Profile', 'Wallet Request', 'Logout'];
 
@@ -162,7 +162,7 @@ const Header = () => {
                 <MenuItem onClick={() => {
 
                   goToMyProfile()
-                }}>My Profile</MenuItem>
+                }}><a href='/myProfile'>My Profile</a></MenuItem>
                 <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request</MenuItem>
                 <MenuItem>Logout</MenuItem>
               </Menu>

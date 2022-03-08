@@ -30,7 +30,7 @@ a{text-decoration: none;color: var(--primary);}
 .text-end{text-align: right;}
 button a{color: inherit;}
 .home-slider .awssld__bullets{display: none;}
-
+.main-wrapper{min-height: calc(100vh - 100px);}
 .subtitle {
   font-size: 14px;
   font-weight: 500;
