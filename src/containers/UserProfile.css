@@ -1,1 +1,8 @@
-.vertical_tab .MuiTabs-flexContainerVertical{width: 200px;}
+.vertical_tab > div .MuiTabs-flexContainerVertical{width: 200px;background-color: var(--primary);color: white;}
+.vertical_tab{padding: 1.5rem 0;}
+.tab-content{padding: 0 1.5rem;margin-left: 1.5rem;}
+.sec-title{background: #f7faff;box-shadow: 0 5px 10px rgb(24 33 99 / 10%);color: var(--primary);padding: 1rem;margin-bottom: 1rem;border: 1px solid #eee;}
+.tab-shadow{box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;}
+.info-list p{padding: 1rem;border-bottom: 1px solid #eee;margin: 0;display: flex;}
+.info-list p label{color: #83868c;font-weight: 500;width: 20%;}
+.info-list p span{display: inline-block;flex-grow: 1;}
