@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import "./Header.css";
 import { Container, Grid, Box, Paper, AppBar, Toolbar, Badge, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuIcon from '@mui/icons-material/Menu';
 import WalletModal from "../component/Modals/WalletModal";
+import { useHistory } from "react-router-dom";
 const pages = ['Home', 'Services', 'Bussiness Opportunity', 'Download', 'Contact Us'];
 const settings = ['My Profile', 'Wallet Request', 'Logout'];
 
@@ -25,24 +25,38 @@ const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const [anchorElUser1, setAnchorElUser1] = useState(false);
+
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
+
+  const handleOpenUserMenu1 = (event) => {
+    setAnchorElUser1(event.currentTarget);
+  };
+  const handleCloseUserMenu1 = () => {
+    setAnchorElUser1(null);
+  };
+
+
   const goToMyProfile = () => {
-    handleCloseUserMenu()
     history.push('/myProfile')
+    console.log("my profile ----")
+    handleCloseUserMenu()
+
   }
   return (
     <div className="header">
@@ -139,14 +153,14 @@ const Header = () => {
             </Box>
             <div>
               <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton onClick={handleOpenUserMenu1} sx={{ p: 0 }}>
                   <Typography textAlign="center">Wallet</Typography>
                 </IconButton>
               </Tooltip>
               <Menu
                 sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
+                id="menu-appbar-1"
+                anchorEl={anchorElUser1}
                 anchorOrigin={{
                   vertical: 'top',
                   horizontal: 'right',
@@ -156,15 +170,22 @@ const Header = () => {
                   vertical: 'top',
                   horizontal: 'right',
                 }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
+                open={Boolean(anchorElUser1)}
+                onClose={handleCloseUserMenu1}
+                onChange={(e) => {
+                  console.log("changevalue --")
+                }}
+                onSelect={(e) => {
+                  console.log("changevalue --")
+                }}
               >
-                <MenuItem onClick={() => {
-
-                  goToMyProfile()
-                }}><a href='/myProfile'>My Profile</a></MenuItem>
-                <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request</MenuItem>
+                <MenuItem onClick={(e) => {
+                  console.log("changevalue --")
+                  history.push('/myProfile')
+                }}>My Profile 1</MenuItem>
+                <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request 1</MenuItem>
                 <MenuItem>Logout</MenuItem>
+                <MenuItem>Logout2</MenuItem>
               </Menu>
             </div>
             <Typography
@@ -378,7 +399,7 @@ const Header = () => {
         handleOpen={(data) => setOpenWalletModal(data)}
         handleClose={(data) => setOpenWalletModal(data)}
       />
-    </div>
+    </div >
   );
 };
 

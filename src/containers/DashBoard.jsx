@@ -9,13 +9,16 @@ import { servicesService } from "../services/service.service";
 import SliderAwesome from '../component/SliderAwesome';
 import FullWidthTabs from '../component/TabPanel';
 import SliderReactSlideShow from '../component/SliderReactSlideShow';
+import { bannerService } from '../services/banner.services';
 
 const DashBoard = () => {
     const [servicesList, setServicesList] = useState([]);
+    const [bannerList, setBannerList] = useState([])
 
     // const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
     useEffect(() => {
         getListOfServices();
+        getListOfBanners()
     }, []);
 
     const getListOfServices = () => {
@@ -23,6 +26,20 @@ const DashBoard = () => {
             servicesService.getAll().then(res => {
                 console.log("lst --", res)
                 setServicesList(res)
+            }).catch(err => {
+                console.log(err)
+            })
+        } catch (err) {
+            return err
+        }
+    }
+
+    const getListOfBanners = () => {
+        try {
+            bannerService.getAllBanner().then(res => {
+                console.log("lst --", res)
+
+                setBannerList(res);
             }).catch(err => {
                 console.log(err)
             })
@@ -42,8 +59,8 @@ const DashBoard = () => {
     // }
 
     return (
-        <div>            
-            <SliderAwesome />
+        <div>
+            <SliderAwesome imageData={bannerList} />
             {/* <SliderReactSlideShow /> */}
             <FullWidthTabs />
             <div className='section-space bg-light'>

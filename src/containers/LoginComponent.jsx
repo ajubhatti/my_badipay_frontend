@@ -6,6 +6,7 @@ import { accountService } from "../services/account.service";
 import { alertService } from "../services";
 import { authenticationService } from "../services/authentication.service";
 import { Grid, Button } from '@mui/material';
+import GeolocationPage from "./GeolocationPage";
 
 const LoginComponent = () => {
     const [email, setEmail] = useState("ajaz@gmail.com");
@@ -53,6 +54,7 @@ const LoginComponent = () => {
     return (
         <div className="main-wrapper">
             {/* login wrapper  */}
+            <GeolocationPage />
             <div className="login-wrapper">
                 <Typography sx={{ mb: 3 }} variant="h5" component="h5" align='center'>To Login into your Badipay Web account</Typography>
 

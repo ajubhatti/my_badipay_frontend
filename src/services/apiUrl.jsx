@@ -18,5 +18,12 @@ export const apiUrl = {
     account: {
         register: `${baseUrl}accounts/register`,
         authenticate: `${baseUrl}accounts/authenticate`
+    },
+    banner: {
+        getAll: `${baseUrl}banner`,
+        create: `${baseUrl}banner`,
+        getById: `${baseUrl}banner`,
+        delete: `${baseUrl}banner`,
     }
+
 }
