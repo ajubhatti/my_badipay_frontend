@@ -24,6 +24,12 @@ export const apiUrl = {
         create: `${baseUrl}banner`,
         getById: `${baseUrl}banner`,
         delete: `${baseUrl}banner`,
+    },
+    ticker: {
+        getAll: `${baseUrl}ticker`,
+        create: `${baseUrl}ticker`,
+        getById: `${baseUrl}ticker`,
+        delete: `${baseUrl}ticker`,
     }
 
 }

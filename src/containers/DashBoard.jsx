@@ -10,15 +10,18 @@ import SliderAwesome from '../component/SliderAwesome';
 import FullWidthTabs from '../component/TabPanel';
 import SliderReactSlideShow from '../component/SliderReactSlideShow';
 import { bannerService } from '../services/banner.services';
+import { tickerService } from '../services/ticker.services';
 
 const DashBoard = () => {
     const [servicesList, setServicesList] = useState([]);
     const [bannerList, setBannerList] = useState([])
+    const [tickerList, setTickerList] = useState([])
 
     // const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser') || '{}'));
     useEffect(() => {
         getListOfServices();
-        getListOfBanners()
+        getListOfBanners();
+        getAllTicker();
     }, []);
 
     const getListOfServices = () => {
@@ -48,6 +51,17 @@ const DashBoard = () => {
         }
     }
 
+    const getAllTicker = () => {
+        try {
+            tickerService.getAll().then(res => {
+                console.log(res)
+                setTickerList(res)
+            })
+        }
+        catch (error) {
+            return error
+        }
+    }
     // const deleteTask = (id : any) => {
 
 
@@ -60,6 +74,10 @@ const DashBoard = () => {
 
     return (
         <div>
+            <marquee>
+                {tickerList.map(theElement => theElement.description.toString())}
+            </marquee>
+
             <SliderAwesome imageData={bannerList} />
             {/* <SliderReactSlideShow /> */}
             <FullWidthTabs />
