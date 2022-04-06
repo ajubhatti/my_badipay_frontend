@@ -1,6 +1,6 @@
 import { apiUrl } from "./apiUrl";
 
-const baseUrl = `http://192.168.129.240:4000/ticker`;
+const baseUrl = `http://192.168.15.240:4000/ticker`;
 
 export const tickerService = {
     create,

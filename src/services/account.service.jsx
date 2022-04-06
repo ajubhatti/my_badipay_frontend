@@ -6,7 +6,7 @@ const userSubject = new BehaviorSubject(null);
 // const baseUrl = `${process.env.BASE_URL}/accounts`;
 
 
-const baseUrl = `http://192.168.123.240:4000/accounts`;
+const baseUrl = `http://192.168.15.240:4000/accounts`;
 
 console.log("account base url ---", process.env.BASE_URL)
 

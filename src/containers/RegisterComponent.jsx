@@ -7,7 +7,7 @@ import { alertService } from "../services";
 import { async } from "rxjs";
 import { Typography, TextField, Button } from '@mui/material';
 
-const baseUrl = `http://192.168.123.240:4000/accounts`;
+const baseUrl = `http://192.168.15.240:4000/accounts`;
 
 const RegisterComponent = () => {
     const [userName, setUserName] = useState(null);
