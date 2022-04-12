@@ -1,20 +1,41 @@
 import React, { useState } from "react";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 import "./Header.css";
-import { Container, Grid, Box, Paper, AppBar, Toolbar, Badge, IconButton, Typography, Menu, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MenuIcon from '@mui/icons-material/Menu';
+import {
+  Container,
+  Grid,
+  Box,
+  Paper,
+  AppBar,
+  Toolbar,
+  Badge,
+  IconButton,
+  Typography,
+  Menu,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+} from "@mui/material";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import MenuIcon from "@mui/icons-material/Menu";
 import WalletModal from "../component/Modals/WalletModal";
 import { useHistory } from "react-router-dom";
-const pages = ['Home', 'Services', 'Bussiness Opportunity', 'Download', 'Contact Us'];
-const settings = ['My Profile', 'Wallet Request', 'Logout'];
+const pages = [
+  "Home",
+  "Services",
+  "Bussiness Opportunity",
+  "Download",
+  "Contact Us",
+];
+const settings = ["My Profile", "Wallet Request", "Logout"];
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
-  boxShadow: 'none',
-  background: 'transparent',
+  boxShadow: "none",
+  background: "transparent",
   color: theme.palette.text.secondary,
 }));
 
@@ -27,7 +48,6 @@ const Header = () => {
 
   const [anchorElUser1, setAnchorElUser1] = useState(false);
 
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -35,14 +55,13 @@ const Header = () => {
     setAnchorElNav(null);
   };
 
-
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
   const handleCloseUserMenu = () => {
+    console.log("close");
     setAnchorElUser(null);
   };
-
 
   const handleOpenUserMenu1 = (event) => {
     setAnchorElUser1(event.currentTarget);
@@ -51,18 +70,16 @@ const Header = () => {
     setAnchorElUser1(null);
   };
 
-
   const goToMyProfile = () => {
-    history.push('/myProfile')
-    console.log("my profile ----")
-    handleCloseUserMenu()
-
-  }
+    history.push("/myProfile");
+    console.log("my profile ----");
+    handleCloseUserMenu();
+  };
   return (
     <div className="header">
-      <Grid container spacing={2} className='bg-primary top-row'>
+      <Grid container spacing={2} className="bg-primary top-row">
         <Grid item md={6}>
-          <Item color='white'>
+          <Item color="white">
             <ul>
               <li>
                 <a href="mailto:test@gmail.com">
@@ -107,15 +124,16 @@ const Header = () => {
       <AppBar position="static" sx={{ bgcolor: "white" }} elevation={2}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Typography className="logo"
+            <Typography
+              className="logo"
               variant="h6"
               noWrap
               component="div"
-              sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
               <img src="assets/images/logo.jpg" />
             </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -130,18 +148,18 @@ const Header = () => {
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
+                  vertical: "bottom",
+                  horizontal: "left",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
+                  vertical: "top",
+                  horizontal: "left",
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
-                  display: { xs: 'block', md: 'none' },
+                  display: { xs: "block", md: "none" },
                 }}
               >
                 {pages.map((page) => (
@@ -158,32 +176,40 @@ const Header = () => {
                 </IconButton>
               </Tooltip>
               <Menu
-                sx={{ mt: '45px' }}
+                sx={{ mt: "45px" }}
                 id="menu-appbar-1"
                 anchorEl={anchorElUser1}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 open={Boolean(anchorElUser1)}
                 onClose={handleCloseUserMenu1}
                 onChange={(e) => {
-                  console.log("changevalue --")
+                  console.log(e.target.value);
+                  history.push("myProfile");
                 }}
                 onSelect={(e) => {
-                  console.log("changevalue --")
+                  console.log(e.target.value);
+                  history.push("myProfile");
                 }}
               >
-                <MenuItem onClick={(e) => {
-                  console.log("changevalue --")
-                  history.push('/myProfile')
-                }}>My Profile 1</MenuItem>
-                <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request 1</MenuItem>
+                <MenuItem
+                  onClick={(e) => {
+                    console.log(e.target.value);
+                    history.push("myProfile");
+                  }}
+                >
+                  My Profile 1
+                </MenuItem>
+                <MenuItem onClick={() => setOpenWalletModal(true)}>
+                  Wallet Request 1
+                </MenuItem>
                 <MenuItem>Logout</MenuItem>
                 <MenuItem>Logout2</MenuItem>
               </Menu>
@@ -192,45 +218,47 @@ const Header = () => {
               variant="h6"
               noWrap
               component="div"
-              sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+              sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             >
               LOGO
             </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page}
                 </Button>
               ))}
             </Box>
-            <Box sx={{ flexGrow: 0 }} className='wallet'>
+            <Box sx={{ flexGrow: 0 }} className="wallet">
               <Tooltip title="Open wallet">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <img src="assets/images/wallet.png" />
                 </IconButton>
               </Tooltip>
               <Menu
-                sx={{ mt: '45px' }}
+                sx={{ mt: "45px" }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
                 <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
-                <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request</MenuItem>
+                <MenuItem onClick={() => setOpenWalletModal(true)}>
+                  Wallet Request
+                </MenuItem>
                 <MenuItem>Logout</MenuItem>
               </Menu>
             </Box>
@@ -252,23 +280,33 @@ const Header = () => {
                 </IconButton>
               </Tooltip>
               <Menu
-                sx={{ mt: '45px' }}
+                sx={{ mt: "45px" }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
+                onChange={(e) => {
+                  console.log("changevalue --");
+                }}
+                onSelect={(e) => {
+                  console.log("changevalue --");
+                }}
               >
-                <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
-                <MenuItem onClick={() => setOpenWalletModal(true)}>Wallet Request</MenuItem>
+                <MenuItem onClick={() => goToMyProfile()}>
+                  My Profile 1
+                </MenuItem>
+                <MenuItem onClick={() => setOpenWalletModal(true)}>
+                  Wallet Request
+                </MenuItem>
                 <MenuItem>Logout</MenuItem>
               </Menu>
             </Box>
@@ -399,7 +437,7 @@ const Header = () => {
         handleOpen={(data) => setOpenWalletModal(data)}
         handleClose={(data) => setOpenWalletModal(data)}
       />
-    </div >
+    </div>
   );
 };
 

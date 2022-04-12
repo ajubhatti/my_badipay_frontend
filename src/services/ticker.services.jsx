@@ -1,6 +1,6 @@
 import { apiUrl } from "./apiUrl";
 
-const baseUrl = `http://192.168.15.240:4000/ticker`;
+const baseUrl = `${process.env.REACT_APP_BASE_URL}/ticker`;
 
 export const tickerService = {
     create,

@@ -3,12 +3,7 @@ import { fetchWrapper } from '../helpers/fetch-wrapper';
 import { history } from '../helpers/history';
 
 const userSubject = new BehaviorSubject(null);
-// const baseUrl = `${process.env.BASE_URL}/service`;
-
-const baseUrl = `http://192.168.15.240:4000/service`;
-
-
-console.log("base url ---", baseUrl)
+const baseUrl = `${process.env.REACT_APP_BASE_URL}/service`;
 
 export const servicesService = {
     getAll,

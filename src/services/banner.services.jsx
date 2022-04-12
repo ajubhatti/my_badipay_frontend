@@ -1,6 +1,6 @@
 import { apiUrl } from "./apiUrl";
 
-const bannerUrl = `http://192.168.15.240:4000/banner`
+const bannerUrl = `${process.env.REACT_APP_BASE_URL}/banner`
 
 export const bannerService = {
     getAllBanner,

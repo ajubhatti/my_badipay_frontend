@@ -7,7 +7,7 @@ import { alertService } from "../services";
 import { async } from "rxjs";
 import { Typography, TextField, Button } from '@mui/material';
 
-const baseUrl = `http://192.168.15.240:4000/accounts`;
+const baseUrl = `${process.env.REACT_APP_BASE_URL}/accounts`;
 
 const RegisterComponent = () => {
     const [userName, setUserName] = useState(null);

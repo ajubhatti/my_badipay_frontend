@@ -1,5 +1,6 @@
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
+import {Buffer} from 'buffer';
 
 const SliderAwesome = (props) => {
 
@@ -12,23 +13,11 @@ const SliderAwesome = (props) => {
     <AwesomeSlider className='home-slider'>
       {
         props.imageData.map((imgDt, index) =>
-          <div>
+          <div key = {index}>
             {ShowImage(imgDt.img, index)}
           </div>
         )
       }
-      {/* <div>
-        <img src="assets/images/10107.jpg" />
-      </div>
-      <div>
-        <img src="assets/images/rcpanel.com.jpeg" />
-      </div>
-      <div>
-        <img src="assets/images/10107.jpg" />
-      </div>
-      <div>
-        <img src="assets/images/rcpanel.com.jpeg" />
-      </div> */}
     </AwesomeSlider>
   )
 }
