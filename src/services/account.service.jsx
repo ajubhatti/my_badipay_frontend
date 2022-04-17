@@ -23,6 +23,7 @@ export const accountService = {
   get userValue() {
     return userSubject.value;
   },
+  getUserById,
 };
 
 function login(email, password) {
@@ -94,6 +95,10 @@ function getAll(payload) {
 
 function getById(id) {
   return fetchWrapper.get(`${baseUrl}/${id}`);
+}
+
+function getUserById(payload) {
+  return fetchWrapper.post(`${baseUrl}/getUserById`, payload);
 }
 
 function create(params) {

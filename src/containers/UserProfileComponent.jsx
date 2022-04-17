@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./UserProfile.css";
 import {
   Container,
@@ -18,22 +18,10 @@ import {
 } from "@mui/material";
 import PropTypes from "prop-types";
 import { accountService } from "../services/account.service";
+import { transactionService } from "../services/transaction.service";
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
-
-  useEffect(() => {
-    getUserDataById();
-  }, []);
-
-  const getUserDataById = async () => {
-    console.log("get By id --");
-    await accountService.getAll({}).then(async (res) => {
-      await accountService.getById(res[0].id).then((result) => {
-        console.log(result);
-      });
-    });
-  };
 
   return (
     <div className="main-wrapper">
@@ -69,9 +57,40 @@ function a11yProps(index) {
 
 const VerticalTabs = () => {
   const [value, setValue] = React.useState(0);
+  const [userDetail, setUserDetail] = useState({});
+  const [transaction, setTransaction] = useState([]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  useEffect(() => {
+    getUserDataById();
+    getUserTransactionById();
+  }, []);
+
+  const getUserDataById = async () => {
+    console.log("get By id --");
+    await accountService.getAll({}).then(async (res) => {
+      let payload = { id: res[0].id };
+      await accountService.getUserById(payload).then((result) => {
+        setUserDetail(result);
+        console.log(result);
+      });
+    });
+  };
+
+  const getUserTransactionById = async () => {
+    console.log("get By id --");
+    await accountService.getAll({}).then(async (res) => {
+      let payload = { userId: res[0].id };
+      await transactionService
+        .getTransactionByUserId(payload)
+        .then((result) => {
+          setTransaction(result);
+          console.log(result);
+        });
+    });
   };
 
   return (
@@ -102,63 +121,24 @@ const VerticalTabs = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>Date</TableCell>
-                  <TableCell>Description</TableCell>
-                  <TableCell>Status</TableCell>
-                  <TableCell>Fee</TableCell>
-                  <TableCell>Amount</TableCell>
+                  <TableCell>requestAmount</TableCell>
+                  <TableCell>creditAmount</TableCell>
+                  <TableCell>debitAmount</TableCell>
+                  <TableCell>amountType</TableCell>
+                  <TableCell>finalWalletAmount</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                <TableRow>
-                  <TableCell>17 Jul</TableCell>
-                  <TableCell>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Obcaecati officia,{" "}
-                  </TableCell>
-                  <TableCell>Pending</TableCell>
-                  <TableCell>$0.05</TableCell>
-                  <TableCell>#100.03</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>17 Jul</TableCell>
-                  <TableCell>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Obcaecati officia,{" "}
-                  </TableCell>
-                  <TableCell>Pending</TableCell>
-                  <TableCell>$0.05</TableCell>
-                  <TableCell>#100.03</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>17 Jul</TableCell>
-                  <TableCell>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Obcaecati officia,{" "}
-                  </TableCell>
-                  <TableCell>Pending</TableCell>
-                  <TableCell>$0.05</TableCell>
-                  <TableCell>#100.03</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>17 Jul</TableCell>
-                  <TableCell>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Obcaecati officia,{" "}
-                  </TableCell>
-                  <TableCell>Pending</TableCell>
-                  <TableCell>$0.05</TableCell>
-                  <TableCell>#100.03</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>17 Jul</TableCell>
-                  <TableCell>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Obcaecati officia,{" "}
-                  </TableCell>
-                  <TableCell>Pending</TableCell>
-                  <TableCell>$0.05</TableCell>
-                  <TableCell>#100.03</TableCell>
-                </TableRow>
+                {transaction.map((trsctn, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{trsctn.created}</TableCell>
+                    <TableCell>{trsctn.requestAmount}</TableCell>
+                    <TableCell>{trsctn.creditAmount}</TableCell>
+                    <TableCell>{trsctn.debitAmount}</TableCell>
+                    <TableCell>{trsctn.amountType}</TableCell>
+                    <TableCell>{trsctn.finalWalletAmount}</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </TableContainer>
@@ -168,27 +148,28 @@ const VerticalTabs = () => {
           <div className="tab-shadow info-list">
             <p>
               <label>Name</label>
-              <span>Jhon Due</span>
+              <span>{userDetail.userName}</span>
             </p>
             <p>
-              <label>Date of Birth</label>
-              <span>16-02-1978</span>
+              <label>Balance</label>
+              <span>{userDetail.balance}</span>
             </p>
             <p>
               <label>Email</label>
-              <span>company@demo.com</span>
+              <span>{userDetail.email}</span>
             </p>
             <p>
               <label>Mobile</label>
-              <span>098765432</span>
+              <span>{userDetail.phoneNumber}</span>
             </p>
-            <p>
-              <label>Address</label>
-              <span>
-                1601 Austin Farms Rd, Ortonville, MI, 48462, Suite 100-18, San
-                Ditego, California - 2434, United States.
-              </span>
-            </p>
+            {/* <p>
+              <label>location</label>
+              <span>{userDetail.location}</span>
+            </p> */}
+            {/* <p>
+              <label>Active</label>
+              <span>{userDetail.isActive ? "Active" : "Deactive"}</span>
+            </p> */}
           </div>
         </TabPanel>
         <TabPanel value={value} index={2}>
