@@ -103,6 +103,7 @@ const Service = (props) => {
   ];
 
   const serviceRanders = (id) => {
+    console.log({ id });
     switch (id) {
       case 1:
         return <MobileService />;
